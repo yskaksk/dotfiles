@@ -113,3 +113,18 @@ let g:pymode_doc = "K"
 "ultisnips{{{
 "}}}
 "
+"ale{{{
+let g:ale_lint_on_text_changed = "normal"
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_open_list = 0
+let g:ale_linters = {
+	\'python' : ['pylint'],
+	\}
+let g:ale_python_pylint_use_global = 1
+let g:ale_python_flake8_use_global = 1
+let g:ale_sign_error = "E"
+let g:ale_sign_warning = "?"
+let g:ale_sign_column_always = 1
+"}}}
+"
