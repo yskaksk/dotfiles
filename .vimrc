@@ -128,3 +128,13 @@ let g:ale_sign_warning = "?"
 let g:ale_sign_column_always = 1
 "}}}
 "
+"ctrlp{{{
+let g:ctrlp_by_filename = 1
+let g:ctrlp_match_window = 'bottom,order:btt,min:1, max:25,results:500'
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '1vjr'
+let g:ctrlp_lazy_update = 1
+"}}}
+"
