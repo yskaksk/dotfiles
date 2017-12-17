@@ -95,3 +95,7 @@ let g:auto_save_events = ['CursorHold', 'BufLeave', 'FocusLost']
 let g:airline_theme = 'badwolf'
 let g:airline_detect_modified = 1
 "}}}
+"
+"vim-splash{{{
+let g:splash#path = expand('~/.vim/my_splash.txt')
+"}}}
