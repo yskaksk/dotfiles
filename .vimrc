@@ -91,3 +91,7 @@ let g:auto_save_in_insert_mode = 0
 let g:auto_save_events = ['CursorHold', 'BufLeave', 'FocusLost']
 "}}}
 
+"vim-airline{{{
+let g:airline_theme = 'badwolf'
+let g:airline_detect_modified = 1
+"}}}
