@@ -7,7 +7,6 @@ highlight Normal ctermbg=none
 call plug#begin('~/.vim/vim-plug')
 Plug '907th/vim-auto-save'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dhruvasagar/vim-dotoo'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
@@ -138,7 +137,4 @@ let g:ctrlp_open_multiple_files = '1vjr'
 let g:ctrlp_lazy_update = 1
 "}}}
 "
-"vim-dotoo{{{
-let g:dotoo#agenda#files = ['~/Documents/projects/sandbox/todo.dotoo']
-"}}}
 au FileType vim setlocal foldmethod=marker
