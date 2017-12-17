@@ -138,3 +138,6 @@ let g:ctrlp_open_multiple_files = '1vjr'
 let g:ctrlp_lazy_update = 1
 "}}}
 "
+"vim-dotoo{{{
+let g:dotoo#agenda#files = ['~/Documents/projects/sandbox/todo.dotoo']
+"}}}
