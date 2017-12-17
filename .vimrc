@@ -53,6 +53,7 @@ set wildmenu
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 set matchpairs& matchpairs+=<:>
+set completeopt-=preview
 
 nnoremap j gjzz
 nnoremap k gkzz
