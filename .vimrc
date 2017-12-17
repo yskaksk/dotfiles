@@ -7,6 +7,7 @@ highlight Normal ctermbg=none
 call plug#begin('~/.vim/vim-plug')
 Plug '907th/vim-auto-save'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dhruvasagar/vim-dotoo'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
@@ -14,7 +15,7 @@ Plug 'thinca/vim-splash'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'python-mode/python-mode', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
