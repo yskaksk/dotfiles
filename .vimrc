@@ -121,11 +121,11 @@ let g:ale_open_list = 0
 let g:ale_linters = {
 	\'python' : ['pylint'],
 	\}
-let g:ale_python_pylint_use_global = 1
-let g:ale_python_flake8_use_global = 1
 let g:ale_sign_error = "E"
 let g:ale_sign_warning = "?"
 let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+let g:airline#extensions#ale#enabled = 0
 "}}}
 "
 "ctrlp{{{
