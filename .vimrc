@@ -1,7 +1,12 @@
 source $VIMRUNTIME/defaults.vim
 
 colorscheme molokai
-highlight Normal ctermbg=none
+if has("unix")
+	augroup HighLightInTerminal
+		autocmd!
+		autocmd VimEnter,SessionLoadPost * highlight Normal ctermbg=none
+	augroup END
+endif
 
 "vim-plug{{{
 call plug#begin('~/.vim/vim-plug')
