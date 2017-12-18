@@ -105,7 +105,7 @@ let g:pymode_foldint = 0
 let g:pymode_lint = 0
 let g:pymode_trim_whitespaced = 0
 let g:pymode_rope_complete_on_dot = 1
-let g:pymode_rope_regeneration_on_write = 0
+let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_virtualenv = 1
 let g:pymode_doc = "K"
 "}}}
