@@ -56,6 +56,7 @@ set completeopt-=preview
 
 nnoremap j gjzz
 nnoremap k gkzz
+nnoremap <C-]> <C-]>zz
 
 nnoremap <C-n> $
 vnoremap <C-n> $
