@@ -11,6 +11,7 @@ endif
 "vim-plug{{{
 call plug#begin('~/.vim/vim-plug')
 Plug '907th/vim-auto-save'
+Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
