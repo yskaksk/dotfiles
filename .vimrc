@@ -22,7 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'python-mode/python-mode', {'for': 'python'}
+Plug 'python-mode/python-mode'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 call plug#end()
