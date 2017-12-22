@@ -144,4 +144,32 @@ let g:ctrlp_open_multiple_files = '1vjr'
 let g:ctrlp_lazy_update = 1
 "}}}
 "
+
+"session-commands{{{
+set sessionoptions-=blank
+set sessionoptions-=help
+set sessionoptions+=globals
+let s:session_path = expand("~/Documents/sessions/")
+"nnoremap <silent><Leader>l :<C-u>call LoadThisSession()<CR>
+nnoremap <silent><Leader>s :<C-u>call SaveThisSession()<CR>
+nnoremap [source_session] <Nop>
+nnoremap [source_session] :source ~/Documents/sessions/
+nmap <Leader>l :%bdelete<CR><Esc>[source_session]
+
+function! SaveThisSession()
+	if strlen(v:this_session) > 0
+		silent execute "normal! :mksession! " . v:this_session . "\<CR>"
+		echo "\nsaved " . v:this_session
+	else
+		let session_name = input("enter session name: ")
+		if strlen(session_name) > 0
+			silent execute "normal! :mksession " . s:session_path . session_name . ".vim\<CR>"
+			echo "\nsaved " . s:session_path . session_name . ".vim"
+		else
+			echo "\ncanceled"
+		endif
+	endif
+endfunction
+"}}}
+
 au FileType vim setlocal foldmethod=marker
