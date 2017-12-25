@@ -25,6 +25,7 @@ Plug 'SirVer/ultisnips'
 Plug 'thinca/vim-splash'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/clever-f.vim'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
