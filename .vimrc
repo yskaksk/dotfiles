@@ -79,6 +79,12 @@ inoremap <C-k> <Up>
 
 nnoremap <Tab> %
 inoremap <C-o> <Esc>o
+
+nnoremap <Leader>ww :w<CR>
+
+inoremap 22 "
+inoremap 88 (
+inoremap 99 )
 "}}}
 "
 "general {{{
