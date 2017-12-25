@@ -8,6 +8,13 @@ if has("unix")
 	augroup END
 endif
 
+if has('vim_starting')
+	let &t_SI .= "\e[5 q"
+	let &t_EI .= "\e[2 q"
+	let &t_SR .= "\e[4 q"
+endif
+
+
 "vim-plug{{{
 call plug#begin('~/.vim/vim-plug')
 Plug '907th/vim-auto-save'
