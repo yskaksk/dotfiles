@@ -163,7 +163,6 @@ set sessionoptions-=blank
 set sessionoptions-=help
 set sessionoptions+=globals
 let s:session_path = expand("~/Documents/sessions/")
-"nnoremap <silent><Leader>l :<C-u>call LoadThisSession()<CR>
 nnoremap <silent><Leader>s :<C-u>call SaveThisSession()<CR>
 nnoremap [source_session] <Nop>
 nnoremap [source_session] :source ~/Documents/sessions/
