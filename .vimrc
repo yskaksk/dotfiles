@@ -20,12 +20,16 @@ call plug#begin('~/.vim/vim-plug')
 Plug '907th/vim-auto-save'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dbeniamine/todo.txt-vim'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
 Plug 'thinca/vim-splash'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/clever-f.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'wakatime/vim-wakatime'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
@@ -113,6 +117,7 @@ let g:auto_save_events = ['CursorHold', 'BufLeave', 'FocusLost']
 "vim-airline{{{
 let g:airline_theme = 'badwolf'
 let g:airline_detect_modified = 1
+let g:airline#extensions#tabline#enabled = 1
 "}}}
 "
 "vim-splash{{{
@@ -128,8 +133,7 @@ let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_virtualenv = 1
 let g:pymode_doc = "K"
 "}}}
-"
-"ultisnips{{{
+""ultisnips{{{
 "}}}
 "
 "ale{{{
@@ -145,6 +149,7 @@ let g:ale_sign_warning = "?"
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 0
+let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
 "}}}
 "
 "ctrlp{{{
@@ -157,6 +162,14 @@ let g:ctrlp_open_multiple_files = '1vjr'
 let g:ctrlp_lazy_update = 1
 "}}}
 "
+"todo-txt.vim{{{
+augroup TodoTxt
+	autocmd!
+	autocmd filetype todo setlocal omnifunc=todo#Complete
+	autocmd filetype todo imap <buffer> @ @<C-X><C-O>
+	autocmd filetype todo imap <buffer> + +<C-X><C-O>
+augroup END
+"}}}
 
 "session-commands{{{
 set sessionoptions-=blank
