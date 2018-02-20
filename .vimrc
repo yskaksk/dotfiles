@@ -173,6 +173,8 @@ augroup TodoTxt
 	autocmd filetype todo imap <buffer> @ @<C-X><C-O>
 	autocmd filetype todo imap <buffer> + +<C-X><C-O>
 augroup END
+
+let s:todo_file_path = ''
 "}}}
 
 "session-commands{{{
