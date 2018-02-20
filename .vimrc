@@ -91,6 +91,8 @@ nnoremap <Leader>ww :w<CR>
 inoremap 22 "
 inoremap 88 (
 inoremap 99 )
+
+nnoremap <Leader>L :ls<CR>:b 
 "}}}
 "
 "general {{{
