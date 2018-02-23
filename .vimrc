@@ -141,8 +141,9 @@ let g:pymode_doc = "K"
 "}}}
 "
 "ale{{{
+let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = "normal"
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_open_list = 0
 let g:ale_linters = {
