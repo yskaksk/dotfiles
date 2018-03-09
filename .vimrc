@@ -31,7 +31,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/clever-f.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'plasticboy/vim-markdown'
-"Plug 'wakatime/vim-wakatime'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
@@ -93,6 +92,8 @@ inoremap 88 (
 inoremap 99 )
 
 nnoremap <Leader>L :ls<CR>:b 
+nnoremap <Leader>a $i
+nnoremap <Leader>A $<Left>i
 "}}}
 "
 "general {{{
@@ -115,7 +116,7 @@ let g:ycm_key_detailed_diagnostics = ''
 "vim-auto-save{{{
 let g:auto_save =1
 let g:auto_save_in_insert_mode = 0
-let g:auto_save_events = ['CursorHold', 'BufLeave', 'FocusLost']
+let g:auto_save_events = ['CursorHold', 'BufLeave', 'FocusLost', 'InsertLeave', 'TextChanged']
 "}}}
 
 "vim-airline{{{
@@ -141,8 +142,9 @@ let g:pymode_doc = "K"
 "}}}
 "
 "ale{{{
+let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = "normal"
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_open_list = 0
 let g:ale_linters = {
