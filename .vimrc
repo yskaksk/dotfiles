@@ -31,7 +31,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/clever-f.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'wakatime/vim-wakatime'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
