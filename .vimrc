@@ -92,6 +92,8 @@ inoremap 88 (
 inoremap 99 )
 
 nnoremap <Leader>L :ls<CR>:b 
+nnoremap <Leader>a $i
+nnoremap <Leader>A $<Left>i
 "}}}
 "
 "general {{{
