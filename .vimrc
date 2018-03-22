@@ -83,6 +83,7 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
 nnoremap <Tab> %
+vnoremap <Tab> %
 inoremap <C-o> <Esc>o
 
 nnoremap <Leader>ww :w<CR>
