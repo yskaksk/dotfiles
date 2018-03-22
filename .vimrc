@@ -72,8 +72,8 @@ set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 set matchpairs& matchpairs+=<:>
 set completeopt-=preview
 
-nnoremap j gjzz
-nnoremap k gkzz
+nnoremap j gj
+nnoremap k gk
 nnoremap <C-]> <C-]>zz
 
 nnoremap <C-n> $
