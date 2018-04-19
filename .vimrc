@@ -17,27 +17,35 @@ endif
 
 "vim-plug{{{
 call plug#begin('~/.vim/vim-plug')
+"editor{{{
 Plug '907th/vim-auto-save'
-Plug 'aklt/plantuml-syntax'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'rhysd/clever-f.vim'
+"}}}
+"UI{{{
+Plug 'majutsushi/tagbar'
+Plug 'thinca/vim-splash'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+"}}}
+"IDE{{{
+Plug 'tpope/vim-fugitive'
+Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
-Plug 'dbeniamine/todo.txt-vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
-Plug 'thinca/vim-splash'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'rhysd/clever-f.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
+"}}}
+"syntax{{{
 Plug 'python-mode/python-mode'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'rust-lang/rust.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml', {'for': 'toml'}
+Plug 'aklt/plantuml-syntax'
+Plug 'dbeniamine/todo.txt-vim'
+"}}}
 call plug#end()
 "}}}
 
