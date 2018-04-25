@@ -14,6 +14,8 @@ if has('vim_starting')
 	let &t_SR .= "\e[4 q"
 endif
 
+if has('python3')
+endif
 
 "vim-plug{{{
 call plug#begin('~/.vim/vim-plug')
@@ -27,6 +29,8 @@ Plug 'rhysd/clever-f.vim'
 Plug 'majutsushi/tagbar'
 Plug 'thinca/vim-splash'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'enricobacis/vim-airline-clock'
+Plug 'kshenoy/vim-signature'
 "}}}
 "IDE{{{
 Plug 'tpope/vim-fugitive'
@@ -37,8 +41,8 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 "}}}
 "syntax{{{
-Plug 'python-mode/python-mode'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'python-mode/python-mode'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
@@ -90,6 +94,8 @@ vnoremap <C-n> $
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
+inoremap <C-f> <Esc>^c$
+
 
 nnoremap <Tab> %
 vnoremap <Tab> %
@@ -134,10 +140,11 @@ let g:airline_theme = 'badwolf'
 let g:airline_detect_modified = 1
 let g:airline#extensions#tabline#enabled = 1
 "}}}
-"
+
 "vim-splash{{{
 let g:splash#path = expand('~/.vim/my_splash.txt')
 "}}}
+
 "python-mode{{{
 let g:pymode_python = "python3"
 let g:pymode_foldint = 0
@@ -148,9 +155,17 @@ let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_virtualenv = 1
 let g:pymode_doc = "K"
 "}}}
+
 ""ultisnips{{{
 "}}}
-"
+
+"vim-markdown{{{
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_level = 6
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_follow_anchor = 1
+"}}}
+
 "ale{{{
 let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = "normal"
