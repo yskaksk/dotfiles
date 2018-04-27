@@ -85,6 +85,7 @@ set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 set matchpairs& matchpairs+=<:>
 set completeopt-=preview
 
+
 nnoremap j gj
 nnoremap k gk
 nnoremap <C-]> <C-]>zz
@@ -94,18 +95,15 @@ vnoremap <C-n> $
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
-inoremap <C-f> <Esc>^c$
+inoremap <C-f> <Home>
+inoremap <C-l> <End>
 
 
 nnoremap <Tab> %
 vnoremap <Tab> %
-inoremap <C-o> <Esc>o
+inoremap <C-o> <Esc>$a<CR>
 
 nnoremap <Leader>ww :w<CR>
-
-inoremap 22 "
-inoremap 88 (
-inoremap 99 )
 
 nnoremap <Leader>L :<C-u>ls<CR>:b 
 nnoremap <Leader>a $i
