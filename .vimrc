@@ -136,12 +136,10 @@ nnoremap <silent> [general]t :<C-u>echo strftime('%H:%M:%S')<CR>
 "}}}
 "
 "ycm{{{
-inoremap <expr><Space> pumvisible() ? "\<C-y>\<Space>" : "\<Space>"
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<UP>']
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_key_detailed_diagnostics = ''
+let g:ycm_show_diagnostics_ui = 0
 "}}}
 "
 "vim-auto-save{{{
@@ -154,6 +152,8 @@ let g:auto_save_events = ['CursorHold', 'BufLeave', 'FocusLost', 'InsertLeave', 
 let g:airline_theme = 'badwolf'
 let g:airline_detect_modified = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_y = airline#section#create([])
+let g:airline_section_z = '%3p%%'
 "}}}
 
 "vim-splash{{{
@@ -172,6 +172,7 @@ let g:pymode_doc = "K"
 "}}}
 
 ""ultisnips{{{
+let g:UltiSnipsExpandTrigger = '<C-e>'
 "}}}
 
 "vim-markdown{{{
@@ -196,6 +197,7 @@ let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 0
 let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
+let g:ale_cpp_gcc_options = '-std=c++11 -Wall'
 "}}}
 "
 "ctrlp{{{
