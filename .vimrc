@@ -45,6 +45,7 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'python-mode/python-mode'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'leafgarland/typescript-vim'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'aklt/plantuml-syntax'
