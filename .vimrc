@@ -106,9 +106,25 @@ inoremap <C-o> <Esc>$a<CR>
 
 nnoremap <Leader>ww :w<CR>
 
-nnoremap <Leader>L :<C-u>ls<CR>:b 
+nnoremap <Leader>L :<C-u>ls<CR>:b
 nnoremap <Leader>a $i
 nnoremap <Leader>A $<Left>i
+
+nnoremap <C-p> :bprev<CR>
+nnoremap <C-n> :bnext<CR>
+
+nnoremap <C-l> <End>
+nnoremap <C-t> :terminal ++close<CR>
+
+
+
+augroup Help
+	autocmd!
+	autocmd FileType help nnoremap <buffer> J }
+	autocmd FileType help nnoremap <buffer> K {
+	autocmd FileType help nnoremap <buffer> q <C-w>c
+	autocmd FileType help set number
+augroup End
 "}}}
 "
 "general {{{
