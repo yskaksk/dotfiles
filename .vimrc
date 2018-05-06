@@ -33,10 +33,10 @@ Plug 'enricobacis/vim-airline-clock'
 Plug 'kshenoy/vim-signature'
 "}}}
 "IDE{{{
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 "}}}
