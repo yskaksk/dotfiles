@@ -4,7 +4,8 @@ colorscheme molokai
 if has("unix")
 	augroup HighLightInTerminal
 		autocmd!
-		autocmd VimEnter,SessionLoadPost * highlight Normal ctermbg=none
+		autocmd ColorScheme * highlight Normal ctermbg=none
+		autocmd ColorScheme * highlight LineNr ctermbg=none
 	augroup END
 endif
 
@@ -40,6 +41,8 @@ Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --rust-completer'}
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
 "}}}
 "syntax{{{
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
