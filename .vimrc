@@ -24,6 +24,7 @@ Plug '907th/vim-auto-save'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'rhysd/clever-f.vim'
+Plug 'dhruvasagar/vim-table-mode'
 "}}}
 "UI{{{
 Plug 'majutsushi/tagbar'
@@ -91,13 +92,11 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <C-]> <C-]>zz
 
-nnoremap <C-n> $
-vnoremap <C-n> $
-
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-f> <Home>
 inoremap <C-l> <End>
+inoremap <C-i> <Left>
 
 
 nnoremap <Tab> %
@@ -114,6 +113,7 @@ nnoremap <C-p> :bprev<CR>
 nnoremap <C-n> :bnext<CR>
 
 nnoremap <C-l> <End>
+vnoremap <C-l> <End>
 nnoremap <C-t> :terminal ++close<CR>
 
 
@@ -134,7 +134,9 @@ nmap <Leader>g [general]
 nnoremap <silent> [general]p :<C-u>echo expand('%:p')<CR>
 nnoremap <silent> [general]t :<C-u>echo strftime('%H:%M:%S')<CR>
 "}}}
-"
+"vim-table-mode{{{
+let g:table_mode_corner = '|'
+"}}}
 "ycm{{{
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<C-Space>'
