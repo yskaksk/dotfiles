@@ -25,6 +25,7 @@ Plug '907th/vim-auto-save'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'rhysd/clever-f.vim'
+Plug 'dhruvasagar/vim-table-mode'
 "}}}
 "UI{{{
 Plug 'majutsushi/tagbar'
@@ -42,6 +43,7 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 "}}}
 "syntax{{{
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
@@ -94,20 +96,18 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <C-]> <C-]>zz
 
-nnoremap <C-n> $
-vnoremap <C-n> $
-
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-f> <Home>
 inoremap <C-l> <End>
+inoremap <C-i> <Left>
 
 
 nnoremap <Tab> %
 vnoremap <Tab> %
 inoremap <C-o> <Esc>$a<CR>
 
-nnoremap <Leader>ww :w<CR>
+"nnoremap <Leader>ww :w<CR>
 
 nnoremap <Leader>L :<C-u>ls<CR>:b
 nnoremap <Leader>a $i
@@ -117,6 +117,7 @@ nnoremap <C-p> :bprev<CR>
 nnoremap <C-n> :bnext<CR>
 
 nnoremap <C-l> <End>
+vnoremap <C-l> <End>
 nnoremap <C-t> :terminal ++close<CR>
 
 
@@ -137,7 +138,9 @@ nmap <Leader>g [general]
 nnoremap <silent> [general]p :<C-u>echo expand('%:p')<CR>
 nnoremap <silent> [general]t :<C-u>echo strftime('%H:%M:%S')<CR>
 "}}}
-"
+"vim-table-mode{{{
+let g:table_mode_corner = '|'
+"}}}
 "ycm{{{
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<C-Space>'
@@ -222,6 +225,33 @@ augroup TodoTxt
 augroup END
 
 let s:todo_file_path = ''
+"}}}
+
+"vimwiki{{{
+let g:vimwiki_list = [{'path': '~/Documents/projects/vimwiki'}]
+let g:vimwiki_table_mappings = 0
+let g:vimwiki_map_prefix = '<Leader>!' "disable default mappings
+let g:vimwiki_hl_cb_checked = 1
+
+nnoremap [vimwiki-diary] <Nop>
+nnoremap [vimwiki-diary] :<C-U>VimwikiMakeDiaryNote<CR>
+nnoremap [vimwiki-index] <Nop>
+nnoremap [vimwiki-index] :<C-U>VimwikiIndex<CR>
+nmap <Leader>wd [vimwiki-diary]
+nmap <silent><Leader>ww :<C-U>botright 15sp<CR>[vimwiki-diary]
+nmap <Leader>wi [vimwiki-index]
+nnoremap <Leader>wt :<C-U>VimwikiToggleListItem<CR>
+
+augroup VimWikiFT
+	autocmd!
+	autocmd FileType vimwiki setl expandtab
+	autocmd FileType vimwiki setl shiftwidth=4
+	autocmd FileType vimwiki nnoremap <buffer> q :q<CR>
+augroup End
+"}}}
+
+"fzf.vim{{{
+nnoremap <Leader>f :Buffers<CR>
 "}}}
 
 "session-commands{{{
