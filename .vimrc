@@ -43,6 +43,7 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 "}}}
 "syntax{{{
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
@@ -106,7 +107,7 @@ nnoremap <Tab> %
 vnoremap <Tab> %
 inoremap <C-o> <Esc>$a<CR>
 
-nnoremap <Leader>ww :w<CR>
+"nnoremap <Leader>ww :w<CR>
 
 nnoremap <Leader>L :<C-u>ls<CR>:b
 nnoremap <Leader>a $i
@@ -224,6 +225,20 @@ augroup TodoTxt
 augroup END
 
 let s:todo_file_path = ''
+"}}}
+
+"vimwiki{{{
+let g:vimwiki_list = [{'path': '~/Documents/projects/vimwiki'}]
+let g:vimwiki_table_mappings = 0
+let g:vimwiki_map_prefix = '<Leader>!' "disable default mappings
+nnoremap [vimwiki-diary] <Nop>
+nnoremap [vimwiki-diary] :<C-U>VimwikiMakeDiaryNote<CR>
+nnoremap [vimwiki-index] <Nop>
+nnoremap [vimwiki-index] :<C-U>VimwikiIndex<CR>
+nmap <Leader>wd [vimwiki-diary]
+nmap <silent><Leader>ww :<C-U>botright 15sp<CR>[vimwiki-diary]
+nmap <Leader>wi [vimwiki-index]
+nnoremap <Leader>wt :<C-U>VimwikiToggleListItem<CR>
 "}}}
 
 "session-commands{{{
