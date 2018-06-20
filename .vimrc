@@ -231,6 +231,8 @@ let s:todo_file_path = ''
 let g:vimwiki_list = [{'path': '~/Documents/projects/vimwiki'}]
 let g:vimwiki_table_mappings = 0
 let g:vimwiki_map_prefix = '<Leader>!' "disable default mappings
+let g:vimwiki_hl_cb_checked = 1
+
 nnoremap [vimwiki-diary] <Nop>
 nnoremap [vimwiki-diary] :<C-U>VimwikiMakeDiaryNote<CR>
 nnoremap [vimwiki-index] <Nop>
@@ -239,6 +241,17 @@ nmap <Leader>wd [vimwiki-diary]
 nmap <silent><Leader>ww :<C-U>botright 15sp<CR>[vimwiki-diary]
 nmap <Leader>wi [vimwiki-index]
 nnoremap <Leader>wt :<C-U>VimwikiToggleListItem<CR>
+
+augroup VimWikiFT
+	autocmd!
+	autocmd FileType vimwiki setl expandtab
+	autocmd FileType vimwiki setl shiftwidth=4
+	autocmd FileType vimwiki nnoremap <buffer> q :q<CR>
+augroup End
+"}}}
+
+"fzf.vim{{{
+nnoremap <Leader>f :Buffers<CR>
 "}}}
 
 "session-commands{{{
