@@ -4,8 +4,8 @@ colorscheme molokai
 if has("unix")
 	augroup HighLightInTerminal
 		autocmd!
-		autocmd ColorScheme * highlight Normal ctermbg=none
-		autocmd ColorScheme * highlight LineNr ctermbg=none
+		autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
+		autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
 	augroup END
 endif
 
