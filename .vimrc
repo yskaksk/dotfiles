@@ -232,6 +232,7 @@ let g:vimwiki_list = [{'path': '~/Documents/projects/vimwiki'}]
 let g:vimwiki_table_mappings = 0
 let g:vimwiki_map_prefix = '<Leader>!' "disable default mappings
 let g:vimwiki_hl_cb_checked = 1
+let g:vimwiki_folding = "expr"
 
 nnoremap [vimwiki-diary] <Nop>
 nnoremap [vimwiki-diary] :<C-U>VimwikiMakeDiaryNote<CR>
