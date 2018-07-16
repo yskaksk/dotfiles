@@ -20,7 +20,7 @@ if has('python3')
 endif
 
 "vim-plug{{{
-call plug#begin('~/.vim/vim-plug')
+call plug#begin('$HOME/.vim/vim-plug')
 "editor{{{
 Plug '907th/vim-auto-save'
 Plug 'jiangmiao/auto-pairs'
