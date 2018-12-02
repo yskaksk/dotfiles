@@ -141,7 +141,6 @@ inoremap <C-l> <End>
 
 inoremap <C-o> <Esc>$a<CR>
 
-nnoremap <Leader>L :<C-u>ls<CR>:b<Space>
 nnoremap <Leader>a $i
 nnoremap <Leader>A $<Left>i
 nnoremap <Leader>q :<C-u>q<CR>
@@ -167,6 +166,11 @@ cnoremap <C-n> <DOWN>
 cnoremap <UP> <C-p>
 cnoremap <DOWN> <C-n>
 
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
 autocmd vimrc FileType help nnoremap <buffer> J }
 autocmd vimrc FileType help nnoremap <buffer> K {
 autocmd vimrc FileType help nnoremap <buffer> q <C-w>c
@@ -176,11 +180,7 @@ autocmd vimrc FileType help setlocal number
 autocmd vimrc BufEnter * highlight MatchParen ctermbg=black ctermfg=darkgreen
 
 "}}}
-"
-"general {{{
-nnoremap [general] <Nop>
-nmap <Leader>g [general]
-"}}}
+
 "vim-table-mode{{{
 let g:table_mode_corner = '|'
 "}}}
@@ -280,10 +280,10 @@ augroup TodoTxt
     autocmd FileType todo setlocal foldlevel=100
 augroup END
 
-command! -nargs=? -complete=command TodoTxt call <SID>toggle_todo_txt(<q-args>)
+command! -nargs=0 -complete=command TodoTxt call <SID>toggle_todo_txt()
 nnoremap <silent> <Leader>T :<C-u>TodoTxt<CR>
 
-function! s:toggle_todo_txt(cmd)
+function! s:toggle_todo_txt()
     if exists('s:todo_txtbuf')
         call s:close_todo_txt(s:todo_txtbuf)
         unlet s:todo_txtbuf
@@ -323,7 +323,7 @@ nnoremap <Leader>f :FzfBuffers<CR>
 let g:cursorword = 0
 autocmd vimrc FileType python,julia,vim,cpp,rust,markdown let b:cursorword=1
 
-function! s:toggle_cursorword()
+function! s:toggle_cursorword() abort
     if exists('b:cursorword')
         let b:cursorword = b:cursorword < 1 ? 1 : 0
     else
@@ -331,8 +331,35 @@ function! s:toggle_cursorword()
     endif
 endfunction
 
-command! -nargs=? -complete=command ToggleCursor call <SID>toggle_cursorword()
+command! -nargs=0 -complete=command ToggleCursor call <SID>toggle_cursorword()
 "}}}
+
+function! s:silently_grep(...) abort
+    " a:1 is-git-grep-flg
+    " a:2 query
+    " a:3 search range(optional)
+    if a:0 < 2
+        echo "invalid args"
+        return
+    elseif a:0 == 2
+        let l:range = "%"
+    elseif a:0 == 3
+        let l:range = a:3
+    endif
+    if a:1
+        let l:cmd_str = ":silent! Ggrep ".a:2
+    else
+        let l:cmd_str = ":silent! grep ".a:2." ".l:range
+    endif
+    execute l:cmd_str
+    redraw!
+    return
+endfunction
+
+command! -nargs=+ -complete=file GrepN call <SID>silently_grep(0, <f-args>)
+command! -nargs=+  GrepG call <SID>silently_grep(1, <f-args>)
+nnoremap <Leader>gg :<C-u>GrepN<Space>
+nnoremap <Leader>gG :<C-u>GrepG<Space>
 
 "session{{{
 set sessionoptions-=blank
