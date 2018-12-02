@@ -123,6 +123,7 @@ set completeopt-=preview
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set updatetime=100
 
 " reload this file with F1
 nnoremap <silent> <F1> :<C-u>source $MYVIMRC<CR>:echo "reloaded .vimrc"<CR>
