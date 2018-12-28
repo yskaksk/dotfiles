@@ -26,6 +26,7 @@ if has('vim_starting')
 endif
 
 if has('python3')
+    echo 'there is Python 3.x'
 endif
 
 if executable("ag")
@@ -71,6 +72,8 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 "}}}
 "syntax{{{
+"Plug 'jalvesaq/Nvim-R'
+Plug 'mdlerch/mc-stan.vim'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'python-mode/python-mode'
 Plug 'rust-lang/rust.vim'
@@ -136,7 +139,7 @@ nnoremap <C-]> <C-]>zz
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
-inoremap <C-f> <Home>
+inoremap <C-f> <Right>
 inoremap <C-l> <End>
 
 inoremap <C-o> <Esc>$a<CR>
@@ -158,8 +161,9 @@ nnoremap [A :first<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
 
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:GitGutter<CR><C-l>
 nnoremap <C-t> :terminal ++close<CR>
+nnoremap <Leader>r <C-w>r<C-w><C-w>
 
 cnoremap <C-p> <UP>
 cnoremap <C-n> <DOWN>
@@ -321,7 +325,7 @@ nnoremap <Leader>f :FzfBuffers<CR>
 "cursorword{{{
 " set b:cursorword = 1 for each filetype
 let g:cursorword = 0
-autocmd vimrc FileType python,julia,vim,cpp,rust,markdown let b:cursorword=1
+autocmd vimrc FileType python,julia,vim,cpp,rust,markdown,r let b:cursorword=1
 
 function! s:toggle_cursorword() abort
     if exists('b:cursorword')
