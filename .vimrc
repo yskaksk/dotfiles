@@ -70,6 +70,7 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'wakatime/vim-wakatime'
 "}}}
 "syntax{{{
 "Plug 'jalvesaq/Nvim-R'
