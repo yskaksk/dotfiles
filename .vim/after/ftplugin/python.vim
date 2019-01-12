@@ -50,6 +50,7 @@ autocmd vimrc BufEnter python call s:set_linter()
 setl omnifunc=lsp#complete
 
 function! s:call_completion() abort
+    "TODO 動くようにする
     "let b:old_omnifunc = &l:omnifunc
     "let &l:omnifunc = "lsp#complete"
 
