@@ -2,7 +2,6 @@ set encoding=utf-8
 scriptencoding utf-8
 
 source $VIMRUNTIME/defaults.vim
-let g:ale_completion_enabled=1
 
 augroup vimrc
     autocmd!
@@ -64,11 +63,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-cursorword'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
-"Plug 'w0rp/ale'
-"Plug 'yskaksk/ale'
-"Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-"Plug 'honza/vim-snippets'
-"Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 "}}}
@@ -84,17 +78,6 @@ Plug 'dbeniamine/todo.txt-vim'
 
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/async.vim'
-"Plug 'prabirshrestha/asyncomplete.vim'
-"Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-
-"Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \}
-"Plug 'Shougo/deoplete.nvim'
-"Plug 'roxma/nvim-yarp'
-"Plug 'roxma/vim-hug-neovim-rpc'
 "}}}
 call plug#end()
 "}}}
@@ -132,15 +115,14 @@ set wildmenu
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 set matchpairs& matchpairs+=<:>
-"set completeopt-=preview
-"set completeopt=menuone
-"set completeopt=menu,menuone,noselect,noinsert
-set completeopt=menu,noselect,noinsert
+set completeopt=menuone,noselect,noinsert
 
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set updatetime=100
+
+set signcolumn=yes
 
 " reload this file with F1
 nnoremap <silent> <F1> :<C-u>source $MYVIMRC<CR>:echo "reloaded .vimrc"<CR>
@@ -198,15 +180,6 @@ autocmd vimrc BufEnter * highlight MatchParen ctermbg=black ctermfg=darkgreen
 
 "}}}
 
-if executable("/home/akasaka/Documents/projects/lsp_python/.env/bin/pyls")
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['/home/akasaka/Documents/projects/lsp_python/.env/bin/pyls']},
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {'pyflakes': {'enabled': v:true}}}}
-        \})
-endif
-
 "au User lsp_setup call lsp#register_server({
 "    \ 'name': 'languageserver',
 "    \ 'cmd': {server_info->['/usr/local/bin/julia', '/home/akasaka/Documents/projects/lsp_python/lsp.jl']},
@@ -216,45 +189,74 @@ endif
 "
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
-"let g:lsp_log_verbose = 1
-let g:lsp_signs_error = {'text': 'E'}
-let g:lsp_signs_warning = {'text': '!!'}
-let g:lsp_log_file = expand('~/vim-lsp-jl.log')
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '→'}
 let g:lsp_async_completion = 1
-let g:asyncomplete_remove_duplicates = 1
-let g:asyncomplete_auto_popup = 0
-"let g:asyncomplete_force_refresh_on_context_changed = 0
-"
-let g:asyncomplete_log_file = expand('~/async-comp.log')
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand("~/vim-lsp.log")
 
-"let g:deoplete#enable_at_startup = 1
-"let g:LanguageClient_serverCommands = {
-"            \ 'python' : ["/home/akasaka/Documents/projects/lsp_python/.env/bin/pyls"],
-"            \ 'julia' : ['/usr/local/bin/julia', '/home/akasaka/Documents/projects/lsp_python/lsp.jl'],
-"            \}
-"let g:LanguageClient_loggingLevel = 'DEBUG'
-"let g:LanguageClient_serverStderr = expand('~/lc-servererror.log')
-"let g:LanguageClient_loggingFile = expand('~/lc.log')
-set signcolumn=yes
+function! s:get_project_root() abort
+    let l:cur_dir = expand("%:p:h")
+    let l:parts = split(l:cur_dir, "/")
+    while !empty(l:parts)
+        let l:upper_path = "/" . join(l:parts, "/")
+        if isdirectory(l:upper_path . '/.git')
+        \|| isdirectory(l:upper_path . '/.env')
+            return l:upper_path
+        endif
+        let l:parts = l:parts[:-2]
+    endwhile
+    return ""
+endfunction
 
+function! s:set_py_linter() abort
+    let l:prj_root = s:get_project_root()
+    let l:pyls_executable = l:prj_root . '/.env/bin/pyls'
+    if !exists("g:registered_linter_list")
+        let g:registered_linter_list = []
+    endif
+    if index(g:registered_linter_list, l:pyls_executable) > 0
+        return
+    endif
+    if l:prj_root != "" && executable(l:pyls_executable)
+        call lsp#register_server({
+                    \ 'name': 'pyls',
+                    \ 'cmd': {server_info->[l:pyls_executable]},
+                    \ 'whitelist': ['python'],
+                    \ 'workspace_config': {'pyls': {'plugins': {'pyflakes': {'enabled': v:true}}}}
+                    \})
+        call add(g:registered_linter_list, l:pyls_executable)
+    endif
+endfunction
 
+function! s:set_jl_linter() abort
+    let l:prj_root = s:get_project_root()
+    let l:jl_lang_server = '/home/akasaka/Documents/projects/lsp_python/lsp.jl'
+    if !exists("g:registered_linter_list")
+        let g:registered_linter_list = []
+    endif
+    if index(g:registered_linter_list, l:prj_root) > 0
+        return
+    endif
+    if l:prj_root != "" && executable(l:jl_lang_server)
+        call lsp#register_server({
+                    \ 'name': 'julia-languageserver',
+                    \ 'cmd': {server_info->['/usr/local/bin/julia', l:jl_lang_server]},
+                    \ 'whitelist': ['julia'],
+                    \})
+        call add(g:registered_linter_list, l:prj_root)
+    endif
+endfunction
+
+autocmd vimrc BufEnter *.py call s:set_py_linter()
+autocmd vimrc BufEnter *.jl call s:set_jl_linter()
+autocmd vimrc FileType julia setl omnifunc=lsp#complete
 
 
 "vim-table-mode{{{
 let g:table_mode_corner = '|'
 "}}}
-"ycm{{{
-"let g:ycm_key_list_stop_completion = ['<C-y>']
-"let g:ycm_key_invoke_completion = '<Tab>'
-"let g:ycm_key_detailed_diagnostics = ''
-"let g:ycm_show_diagnostics_ui = 0
-"let g:ycm_semantic_triggers = {
-"        \'cpp': ['->', '.', '::'],
-"        \'julia,python': ['.'],
-"        \'rust': ['.', '::']
-"\}
-"}}}
-"
+
 "vim-auto-save{{{
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
@@ -296,40 +298,6 @@ let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_follow_anchor = 1
 "}}}
 
-"ale{{{
-let g:ale_enabled = 1
-let g:ale_linters = {
-            \'python' : ['pyls'],
-            \'julia' : ['languageserver']}
-let g:ale_python_pyls_auto_pipenv = 1
-
-nmap <silent> ]w <Plug>(ale_next_wrap)
-nmap <silent> [w <Plug>(ale_previous_wrap)
-let g:ale_lint_delay = 50
-let g:ale_lint_on_text_changed = "normal"
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-let g:ale_open_list = 0
-let g:ale_sign_error = "E"
-let g:ale_sign_warning = "?"
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
-let g:airline#extensions#ale#enabled = 0
-"let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
-let g:ale_cpp_gcc_options = '-std=c++11 -Wall'
-let g:ale_julia_executable = '/usr/local/bin/julia'
-"}}}
-"
-"ctrlp{{{
-let g:ctrlp_by_filename = 1
-let g:ctrlp_match_window = 'bottom,order:btt,min:1, max:25,results:500'
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '1vjr'
-let g:ctrlp_lazy_update = 1
-"}}}
-"
 "todo-txt.vim{{{
 let s:todo_file_path = '~/Documents/todo/todo.txt'
 let s:todo_window_height = 15
