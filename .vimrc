@@ -229,9 +229,12 @@ function! s:set_py_linter() abort
     endif
 endfunction
 
+let g:julia_executable = expand('/usr/local/bin/julia')
+let g:julia_start_up_language_server = expand('~/Documents/projects/dotfiles/.vim/after/ftplugin/lsp.jl')
+
 function! s:set_jl_linter() abort
     let l:prj_root = s:get_project_root()
-    let l:jl_lang_server = '/home/akasaka/Documents/projects/lsp_python/lsp.jl'
+    let l:jl_lang_server = g:julia_start_up_language_server
     if !exists("g:registered_linter_list")
         let g:registered_linter_list = []
     endif
@@ -241,7 +244,7 @@ function! s:set_jl_linter() abort
     if l:prj_root != "" && executable(l:jl_lang_server)
         call lsp#register_server({
                     \ 'name': 'julia-languageserver',
-                    \ 'cmd': {server_info->['/usr/local/bin/julia', l:jl_lang_server]},
+                    \ 'cmd': {server_info->[g:julia_executable, l:jl_lang_server]},
                     \ 'whitelist': ['julia'],
                     \})
         call add(g:registered_linter_list, l:prj_root)
