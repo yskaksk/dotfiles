@@ -78,9 +78,15 @@ Plug 'dbeniamine/todo.txt-vim'
 
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/async.vim'
+
+Plug 'maralla/completor.vim'
 "}}}
 call plug#end()
 "}}}
+
+let g:completor_python_omni_trigger = '.*'
+let g:completor_complete_options = 'menuone,noselect,noinsert'
+let g:completor_debug = 1
 
 colorscheme molokai
 
@@ -191,7 +197,7 @@ let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '→'}
-let g:lsp_async_completion = 1
+let g:lsp_async_completion = 0
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand("~/vim-lsp.log")
 
@@ -215,7 +221,7 @@ function! s:set_py_linter() abort
     if !exists("g:registered_linter_list")
         let g:registered_linter_list = []
     endif
-    if index(g:registered_linter_list, l:pyls_executable) > 0
+    if index(g:registered_linter_list, l:pyls_executable) > -1
         return
     endif
     if l:prj_root != "" && executable(l:pyls_executable)
@@ -232,28 +238,55 @@ endfunction
 let g:julia_executable = expand('/usr/local/bin/julia')
 let g:julia_start_up_language_server = expand('~/Documents/projects/dotfiles/.vim/after/ftplugin/lsp.jl')
 
+"function! s:set_jl_linter() abort
+"    let l:prj_root = s:get_project_root()
+"    let l:jl_lang_server = g:julia_start_up_language_server
+"    if !exists("g:registered_linter_list")
+"        let g:registered_linter_list = []
+"    endif
+"    if index(g:registered_linter_list, l:prj_root) > -1
+"        return
+"    endif
+"    if l:prj_root != "" && executable(l:jl_lang_server)
+"        call lsp#register_server({
+"                    \ 'name': 'julia-languageserver',
+"                    \ 'cmd': {server_info->[g:julia_executable, l:jl_lang_server]},
+"                    \ 'whitelist': ['julia'],
+"                    \})
+"        call add(g:registered_linter_list, l:prj_root)
+"    endif
+"endfunction
 function! s:set_jl_linter() abort
     let l:prj_root = s:get_project_root()
-    let l:jl_lang_server = g:julia_start_up_language_server
     if !exists("g:registered_linter_list")
         let g:registered_linter_list = []
     endif
-    if index(g:registered_linter_list, l:prj_root) > 0
+    if index(g:registered_linter_list, l:prj_root) > -1
         return
     endif
-    if l:prj_root != "" && executable(l:jl_lang_server)
-        call lsp#register_server({
-                    \ 'name': 'julia-languageserver',
-                    \ 'cmd': {server_info->[g:julia_executable, l:jl_lang_server]},
-                    \ 'whitelist': ['julia'],
-                    \})
-        call add(g:registered_linter_list, l:prj_root)
-    endif
+    call lsp#register_server({
+    \   'name': 'julia-languagerserver',
+    \   'cmd': {server_info->[g:julia_executable, '--startup-file=no', '--history-file=no', '-e', '
+    \       using LanguageServer;
+    \       using Pkg;
+    \       import StaticLint;
+    \       import SymbolServer;
+    \       env_path = dirname(Pkg.Types.Context().env.project_file);
+    \       debug = false;
+    \       
+    \       server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, "", Dict());
+    \       server.runlinter = true;
+    \       run(server);
+    \   ']},
+    \   'whitelist': ['julia'],
+    \ })
+    call add(g:registered_linter_list, l:prj_root)
 endfunction
+
 
 autocmd vimrc BufEnter *.py call s:set_py_linter()
 autocmd vimrc BufEnter *.jl call s:set_jl_linter()
-autocmd vimrc FileType julia setl omnifunc=lsp#complete
+"autocmd vimrc FileType julia setl omnifunc=lsp#complete
 
 
 "vim-table-mode{{{
