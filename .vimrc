@@ -19,6 +19,11 @@ if has("unix")
     augroup END
 endif
 
+if has('mac')
+    let g:mac_ime_off = 'osascript -e "tell application \"System Events\" to key code 102"'
+    autocmd vimrc InsertLeave * :call system(g:mac_ime_off)
+endif
+
 if has('vim_starting')
     let &t_SI .= "\e[5 q"
     let &t_EI .= "\e[2 q"
@@ -55,7 +60,7 @@ Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
 Plug 'thinca/vim-splash'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'enricobacis/vim-airline-clock'
+"Plug 'enricobacis/vim-airline-clock'
 Plug 'kshenoy/vim-signature'
 "}}}
 "IDE{{{
@@ -69,6 +74,7 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'wakatime/vim-wakatime'
 "}}}
 "syntax{{{
 "Plug 'jalvesaq/Nvim-R'
@@ -139,7 +145,8 @@ nnoremap <C-]> <C-]>zz
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-f> <Right>
-inoremap <C-l> <End>
+inoremap <C-b> <Left>
+inoremap <C-e> <End>
 
 inoremap <C-o> <Esc>$a<CR>
 
@@ -182,6 +189,8 @@ autocmd vimrc FileType help setlocal number
 
 autocmd vimrc BufEnter * highlight MatchParen ctermbg=black ctermfg=darkgreen
 
+" 1.mdなど（作業ログ用のファイル）を開いたときは、日時挿入用のマップを追加する
+autocmd vimrc BufRead *.md if @% =~ '\d\.md$' | imap <buffer> <C-]> [<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Space>| endif
 "}}}
 
 "vim-table-mode{{{
@@ -189,7 +198,7 @@ let g:table_mode_corner = '|'
 "}}}
 "ycm{{{
 let g:ycm_key_list_stop_completion = ['<C-y>']
-let g:ycm_key_invoke_completion = '<Tab>'
+"let g:ycm_key_invoke_completion = '<Tab>'
 let g:ycm_key_detailed_diagnostics = ''
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_semantic_triggers = {
