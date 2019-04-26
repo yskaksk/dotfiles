@@ -6,3 +6,5 @@ iabbrev <buffer> sefl, self,
 let b:ale_linters = {'python' : ['pylint']}
 
 let b:cursorword_ignore_list = ["class", "def", "for", "if", "try", "catch", "range", "next", "self", "None"]
+
+autocmd! Syntax <buffer> syn keyword Keyword self

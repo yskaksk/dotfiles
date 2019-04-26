@@ -56,6 +56,8 @@ Plug 'tpope/vim-commentary'
 Plug 'rhysd/clever-f.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tomasr/molokai'
+Plug 'sjl/badwolf'
+Plug 'vimwiki/vimwiki'
 "}}}
 "UI{{{
 Plug 'majutsushi/tagbar'
@@ -81,7 +83,7 @@ Plug 'wakatime/vim-wakatime'
 "Plug 'jalvesaq/Nvim-R'
 Plug 'mdlerch/mc-stan.vim'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
-Plug 'python-mode/python-mode'
+""Plug 'python-mode/python-mode'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
@@ -94,7 +96,8 @@ Plug 'dbeniamine/todo.txt-vim'
 call plug#end()
 "}}}
 
-colorscheme molokai
+"colorscheme molokai
+colorscheme badwolf
 
 "normal settings{{{
 set nowritebackup
@@ -199,7 +202,7 @@ let g:table_mode_corner = '|'
 "}}}
 "ycm{{{
 let g:ycm_key_list_stop_completion = ['<C-y>']
-"let g:ycm_key_invoke_completion = '<Tab>'
+let g:ycm_key_invoke_completion = '<Tab>'
 let g:ycm_key_detailed_diagnostics = ''
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_semantic_triggers = {
@@ -263,7 +266,7 @@ let g:ale_sign_warning = "?"
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 0
-let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
+"let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
 let g:ale_cpp_gcc_options = '-std=c++11 -Wall'
 let g:ale_julia_executable = '/usr/local/bin/julia'
 "}}}
@@ -373,6 +376,10 @@ command! -nargs=+ -complete=file GrepN call <SID>silently_grep(0, <f-args>)
 command! -nargs=+  GrepG call <SID>silently_grep(1, <f-args>)
 nnoremap <Leader>gg :<C-u>GrepN<Space>
 nnoremap <Leader>gG :<C-u>GrepG<Space>
+
+"vimwiki{{{
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+"}}}
 
 "session{{{
 set sessionoptions-=blank
