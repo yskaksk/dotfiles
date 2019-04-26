@@ -31,7 +31,6 @@ if has('vim_starting')
 endif
 
 if has('python3')
-    echo 'there is Python 3.x'
 endif
 
 if executable("ag")
