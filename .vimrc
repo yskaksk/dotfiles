@@ -91,6 +91,7 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'aklt/plantuml-syntax'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'dbeniamine/todo.txt-vim'
+Plug 'sophacles/vim-processing'
 "}}}
 call plug#end()
 "}}}
@@ -377,7 +378,7 @@ nnoremap <Leader>gg :<C-u>GrepN<Space>
 nnoremap <Leader>gG :<C-u>GrepG<Space>
 
 "vimwiki{{{
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/mywiki/', 'syntax': 'markdown', 'ext': '.md'}]
 "}}}
 
 "session{{{
