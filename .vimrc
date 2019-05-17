@@ -62,7 +62,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'majutsushi/tagbar'
 Plug 'thinca/vim-splash'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-"Plug 'enricobacis/vim-airline-clock'
 Plug 'kshenoy/vim-signature'
 "}}}
 "IDE{{{
@@ -71,7 +70,8 @@ Plug 'itchyny/vim-cursorword'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+"Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -79,7 +79,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
 "}}}
 "syntax{{{
-"Plug 'jalvesaq/Nvim-R'
 Plug 'mdlerch/mc-stan.vim'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 ""Plug 'python-mode/python-mode'
@@ -279,7 +278,17 @@ let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_open_multiple_files = '1vjr'
 let g:ctrlp_lazy_update = 1
 "}}}
-"
+
+"vim-julia{{{
+
+let g:default_julia_version = "1.0"
+let g:latex_to_unicode_tab = 0
+
+autocmd vimrc FileType julia setl re=1
+autocmd vimrc FileType julia setl ttyfast
+autocmd vimrc FileType julia setl lazyredraw
+"}}}
+
 "todo-txt.vim{{{
 let s:todo_file_path = '~/Documents/todo/todo.txt'
 let s:todo_window_height = 15
@@ -377,7 +386,9 @@ nnoremap <Leader>gg :<C-u>GrepN<Space>
 nnoremap <Leader>gG :<C-u>GrepG<Space>
 
 "vimwiki{{{
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/mywiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+nmap <Leader>tt <Plug>VimwikiToggleListItem
 "}}}
 
 "session{{{
@@ -387,5 +398,5 @@ set sessionoptions+=globals
 "}}}
 
 autocmd vimrc FileType vim setlocal foldmethod=marker
-syntax on
+syntax enable
 filetype plugin on
