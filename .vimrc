@@ -69,11 +69,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-cursorword'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 "Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'Valloric/YouCompleteMe'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
@@ -82,18 +82,50 @@ Plug 'wakatime/vim-wakatime'
 Plug 'mdlerch/mc-stan.vim'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 ""Plug 'python-mode/python-mode'
-Plug 'rust-lang/rust.vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+"Plug 'rust-lang/rust.vim'
+"Plug 'elixir-editors/vim-elixir'
+"Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'aklt/plantuml-syntax'
-Plug 'JuliaEditorSupport/julia-vim'
+"Plug 'JuliaEditorSupport/julia-vim'
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'sophacles/vim-processing'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "}}}
 call plug#end()
 "}}}
+
+let g:asyncomplete_auto_popup = 1
+let g:lsp_async_completion = 1
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['docker-compose', '-f', '/home/akasaka/Documents/projects/lsp_docker/docker-compose.yml', 'run', '--rm', 'pyls', 'pyls']},
+    \ 'whitelist': ['python'],
+    \ })
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'julia_language_server',
+    \ 'cmd': {server_info->['docker-compose', '-f', '/home/akasaka/Documents/projects/lsp_docker/docker-compose.yml',
+    \'run', '--rm', 'julia_language_server', 'julia', '--startup-file=no', '--history-file=no', 'e', '
+        \       using LanguageServer;
+        \       using Pkg;
+        \       import SymbolServer;
+        \       env_path = dirname(Pkg.Types.Context().env.project_file);
+        \       debug = false;
+        \       server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, "", Dict());
+        \       server.runlinter = true;
+        \       run(server);
+        \']},
+    \'whitelist': ['julia'],
+    \ })
+autocmd Bufenter *.jl set filetype=julia
+autocmd FileType python,julia setl omnifunc=lsp#complete
 
 "colorscheme molokai
 colorscheme badwolf
