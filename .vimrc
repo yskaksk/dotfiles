@@ -91,6 +91,7 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'aklt/plantuml-syntax'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'dbeniamine/todo.txt-vim'
+Plug 'sophacles/vim-processing'
 "}}}
 call plug#end()
 "}}}
