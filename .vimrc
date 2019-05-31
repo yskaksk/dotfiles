@@ -14,6 +14,7 @@ if has("unix")
     augroup HighLightInTerminal
         autocmd!
         autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
+        autocmd VimEnter,ColorScheme * highlight EndOfBuffer ctermbg=none
         autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
         autocmd VimEnter,ColorScheme * highlight LineNr ctermfg=0
     augroup END
