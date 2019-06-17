@@ -1,4 +1,4 @@
-sourcedir='/home/akasaka/Documents/github/vim'
+sourcedir='/Users/yosukeakasaka/Documents/github/vim'
 
 cd $sourcedir
 
