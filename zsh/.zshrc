@@ -1,8 +1,7 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -Uz vcs_info
-autoload -Uz colors # black red green yellow blue magenta cyan white
-colors
+autoload -Uz colors && colors # black red green yellow blue magenta cyan white
 
 setopt prompt_subst # プロンプトの中で変数を参照する
 zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
@@ -25,9 +24,6 @@ setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_no_store
 setopt hist_reduce_blanks
-
-autoload -Uz compinit
-compinit
 
 
 alias ls='ls -aG'
