@@ -13,3 +13,12 @@ ln -s /Users/hoge/Documents/projects/dotfiles/zsh/.zshrc /Users/hoge/.zshrc
 # tmux
 ln -s /Users/hoge/Documents/projects/dotfiles/tmux/tmux.conf /Users/hoge/tmux.conf
 ```
+
+
+## zsh
+
+/etc/shellsにzshのパスを追記する
+
+```sh
+sudo vim /etc/shells
+```
