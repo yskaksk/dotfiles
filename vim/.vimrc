@@ -17,6 +17,7 @@ if has("unix")
         autocmd VimEnter,ColorScheme * highlight EndOfBuffer ctermbg=none
         autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
         autocmd VimEnter,ColorScheme * highlight LineNr ctermfg=0
+        autocmd VimEnter,ColorScheme * highlight Comment ctermfg=7
     augroup END
 endif
 
