@@ -26,6 +26,7 @@ setopt hist_no_store
 setopt hist_reduce_blanks
 
 
+# alias
 alias ls='ls -aG'
 alias ll='ls -lG'
 
