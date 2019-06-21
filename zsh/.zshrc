@@ -5,10 +5,10 @@ autoload -Uz colors && colors # black red green yellow blue magenta cyan white
 
 setopt prompt_subst # プロンプトの中で変数を参照する
 zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
-zstyle ':vcs_info:git:*' unstagedstr "%F{blue}[+]" #add されていないファイルがある → %uに格納される
-zstyle ':vcs_info:git:*' stagedstr "%F{red}[!]" #commit されていないファイルがある → %cに格納される
-zstyle ':vcs_info:*' formats "%F{green} (%r:%b)%u%c%f" #通常
-zstyle ':vcs_info:*' actionformats ' (%r:%b|%a)' #rebase 途中,merge コンフリクト等 formats 外の表示
+zstyle ':vcs_info:git:*' unstagedstr "%F{blue}[A]" #add されていないファイルがある → %uに格納される
+zstyle ':vcs_info:git:*' stagedstr "%F{red}[C]" #commit されていないファイルがある → %cに格納される
+zstyle ':vcs_info:*' formats "%F{green} (%b)%u%c%f" #通常
+zstyle ':vcs_info:*' actionformats ' (%b|%a)' #rebase 途中,merge コンフリクト等 formats 外の表示
 
 precmd() {vcs_info}
 PROMPT='%{$fg[yellow]%}%(4~,%-1~/../%2~,%~)>%{$reset_color%}'
