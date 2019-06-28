@@ -24,9 +24,11 @@ setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_no_store
 setopt hist_reduce_blanks
+setopt share_history
 
 
 # alias
+alias sz='source ~/.zshrc'
 alias ls='ls -aG'
 alias ll='ls -lG'
 
