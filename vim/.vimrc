@@ -18,6 +18,7 @@ if has("unix")
         autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
         autocmd VimEnter,ColorScheme * highlight LineNr ctermfg=0
         autocmd VimEnter,ColorScheme * highlight Comment ctermfg=7
+        autocmd VimEnter,ColorScheme * highlight Folded ctermbg=none ctermfg=6
     augroup END
 endif
 
@@ -97,10 +98,12 @@ Plug 'sophacles/vim-processing'
 call plug#end()
 "}}}
 
+"general settings{{{
+
+"options{{{
 "colorscheme molokai
 colorscheme badwolf
 
-"normal settings{{{
 set nowritebackup
 set nobackup
 set noswapfile
@@ -137,7 +140,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set updatetime=100
+"}}}
 
+"mappings{{{
 " reload this file with F1
 nnoremap <silent> <F1> :<C-u>source $MYVIMRC<CR>:echo "reloaded .vimrc"<CR>
 
@@ -185,7 +190,9 @@ cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+"}}}
 
+"autocmd{{{
 autocmd vimrc FileType help nnoremap <buffer> J }
 autocmd vimrc FileType help nnoremap <buffer> K {
 autocmd vimrc FileType help nnoremap <buffer> q <C-w>c
@@ -197,10 +204,14 @@ autocmd vimrc BufEnter * highlight MatchParen ctermbg=black ctermfg=darkgreen
 " 1.mdなど（作業ログ用のファイル）を開いたときは、日時挿入用のマップを追加する
 autocmd vimrc BufRead *.md if @% =~ '\d\.md$' | imap <buffer> <C-]> [<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Space>| endif
 "}}}
+"}}}
 
+"plugins{{{
 "vim-table-mode{{{
 let g:table_mode_corner = '|'
+let g:table_mode_map_prefix = '<LocalLeader>t'
 "}}}
+
 "ycm{{{
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<Tab>'
@@ -212,7 +223,7 @@ let g:ycm_semantic_triggers = {
         \'rust': ['.', '::']
 \}
 "}}}
-"
+
 "vim-auto-save{{{
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
@@ -243,13 +254,14 @@ let g:pymode_virtualenv = 1
 let g:pymode_doc = "K"
 "}}}
 
-""ultisnips{{{
+"ultisnips{{{
 let g:UltiSnipsExpandTrigger = '<C-q>'
 "}}}
 
 "vim-markdown{{{
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_folding_level = 6
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_follow_anchor = 1
 "}}}
@@ -271,7 +283,7 @@ let g:airline#extensions#ale#enabled = 0
 let g:ale_cpp_gcc_options = '-std=c++11 -Wall'
 let g:ale_julia_executable = '/usr/local/bin/julia'
 "}}}
-"
+
 "ctrlp{{{
 let g:ctrlp_by_filename = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:1, max:25,results:500'
@@ -290,6 +302,20 @@ let g:latex_to_unicode_tab = 0
 autocmd vimrc FileType julia setl re=1
 autocmd vimrc FileType julia setl ttyfast
 autocmd vimrc FileType julia setl lazyredraw
+"}}}
+
+"git-gutter{{{
+augroup GitGutterAutoCmd
+    autocmd!
+    autocmd VimEnter,ColorScheme * highlight GitGutterDelete term=bold ctermfg=14
+augroup END
+
+
+let g:gitgutter_sign_added = '+' 
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '>_'
+let g:gitgutter_sign_removed_first_line = '‾'
+let g:gitgutter_sign_modified_removed = '~>'
 "}}}
 
 "todo-txt.vim{{{
@@ -361,6 +387,22 @@ endfunction
 command! -nargs=0 -complete=command ToggleCursor call <SID>toggle_cursorword()
 "}}}
 
+"vimwiki{{{
+let g:vimwiki_list = [{'path': '~/mywiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+nmap <Leader>tt <Plug>VimwikiToggleListItem
+let g:vimwiki_folding='custom'
+autocmd vimrc FileType vimwiki setlocal foldmethod=indent
+"}}}
+
+"session{{{
+set sessionoptions-=blank
+set sessionoptions-=help
+set sessionoptions+=globals
+"}}}
+"}}}
+
+"grep{{{
 function! s:silently_grep(...) abort
     " a:1 is-git-grep-flg
     " a:2 query
@@ -387,17 +429,6 @@ command! -nargs=+ -complete=file GrepN call <SID>silently_grep(0, <f-args>)
 command! -nargs=+  GrepG call <SID>silently_grep(1, <f-args>)
 nnoremap <Leader>gg :<C-u>GrepN<Space>
 nnoremap <Leader>gG :<C-u>GrepG<Space>
-
-"vimwiki{{{
-let g:vimwiki_list = [{'path': '~/mywiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0
-nmap <Leader>tt <Plug>VimwikiToggleListItem
-"}}}
-
-"session{{{
-set sessionoptions-=blank
-set sessionoptions-=help
-set sessionoptions+=globals
 "}}}
 
 autocmd vimrc FileType vim setlocal foldmethod=marker
