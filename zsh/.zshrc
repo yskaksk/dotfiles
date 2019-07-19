@@ -25,12 +25,16 @@ setopt hist_ignore_all_dups
 setopt hist_no_store
 setopt hist_reduce_blanks
 setopt share_history
+setopt nonomatch
 
+export LSCOLORS=GxgxdxbxCxegedabagacad
+export LS_COLORS='no=00:fi=00:di=01;36:ln=36:pi=31:so=33:bd=44;37:cd=44;37:ex=01;32:mi=00:or=36'
 
 # alias
 alias sz='source ~/.zshrc'
 alias ls='ls -aG'
 alias ll='ls -lG'
+alias cdp='cd ~/Documents/projects'
 
 alias gs='git status'
 alias ga='git add'

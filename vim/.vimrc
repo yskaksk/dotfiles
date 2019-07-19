@@ -61,12 +61,14 @@ Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'vimwiki/vimwiki'
 "}}}
+
 "UI{{{
 Plug 'majutsushi/tagbar'
 Plug 'thinca/vim-splash'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'kshenoy/vim-signature'
 "}}}
+
 "IDE{{{
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-cursorword'
@@ -81,6 +83,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
 "}}}
+
 "syntax{{{
 Plug 'mdlerch/mc-stan.vim'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
@@ -392,7 +395,7 @@ let g:vimwiki_list = [{'path': '~/mywiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 nmap <Leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_folding='custom'
-autocmd vimrc FileType vimwiki setlocal foldmethod=indent
+autocmd vimrc FileType vimwiki setlocal foldmethod=expr foldexpr=SmartFoldIndent(v:lnum) foldtext=IndentFoldText()
 "}}}
 
 "session{{{
@@ -400,6 +403,24 @@ set sessionoptions-=blank
 set sessionoptions-=help
 set sessionoptions+=globals
 "}}}
+"}}}
+
+"functions{{{
+
+"indent_fold{{{
+function! SmartFoldIndent(lnum)
+    if getline(a:lnum) =~? '\v^\s*$'
+        return '-1'
+    endif
+    return '>' . (indent(a:lnum) / shiftwidth() + 1)
+endfunction
+
+function! IndentFoldText()
+    let line = getline(v:foldstart)
+    let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+    let n_lines = v:foldend - v:foldstart
+    return '' . sub . ' : +' . n_lines . ' items'
+endfunction
 "}}}
 
 "grep{{{
@@ -429,6 +450,7 @@ command! -nargs=+ -complete=file GrepN call <SID>silently_grep(0, <f-args>)
 command! -nargs=+  GrepG call <SID>silently_grep(1, <f-args>)
 nnoremap <Leader>gg :<C-u>GrepN<Space>
 nnoremap <Leader>gG :<C-u>GrepG<Space>
+"}}}
 "}}}
 
 autocmd vimrc FileType vim setlocal foldmethod=marker
