@@ -104,8 +104,11 @@ call plug#end()
 "general settings{{{
 
 "options{{{
-"colorscheme molokai
-colorscheme badwolf
+if globpath(&rtp, "colors/badwolf.vim") != ""
+    colorscheme badwolf
+elseif globpath(&rtp, "colors/molokai.vim") != ""
+    colorscheme molokai
+endif
 
 set nowritebackup
 set nobackup
@@ -207,6 +210,15 @@ autocmd vimrc BufEnter * highlight MatchParen ctermbg=black ctermfg=darkgreen
 " 1.mdなど（作業ログ用のファイル）を開いたときは、日時挿入用のマップを追加する
 autocmd vimrc BufRead *.md if @% =~ '\d\.md$' | imap <buffer> <C-]> [<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Space>| endif
 "}}}
+
+"netrw{{{
+let g:netrw_liststyle = 1
+let g:netrw_banner = 0
+let g:netrw_sizestyle = "H"
+let g:netrw_timefmt = "%Y/%m/%d(%a) %H:%M:%S"
+let g:netrw_preview = 0
+"}}}
+
 "}}}
 
 "plugins{{{
