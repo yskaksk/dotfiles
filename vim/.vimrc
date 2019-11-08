@@ -422,6 +422,7 @@ function! IndentFoldText()
     return '' . sub . ' : +' . n_lines . ' items'
 endfunction
 "}}}
+"}}}
 
 "grep{{{
 function! s:silently_grep(...) abort
