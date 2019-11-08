@@ -44,3 +44,5 @@ alias gn='git checkout -b'
 alias gb='git branch -a'
 alias gck='git checkout'
 alias gd='git diff'
+
+alias gh='ghq look $(ghq list | peco)'
