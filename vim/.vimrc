@@ -71,6 +71,7 @@ Plug 'kshenoy/vim-signature'
 
 "IDE{{{
 Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
 Plug 'itchyny/vim-cursorword'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
