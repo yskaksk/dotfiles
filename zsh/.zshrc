@@ -1,5 +1,7 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export PATH=$PATH:~/venv/pyls-env/bin:~/Documents/projects/dotfiles/tmux/bin
+
 autoload -Uz vcs_info
 autoload -Uz colors && colors # black red green yellow blue magenta cyan white
 
