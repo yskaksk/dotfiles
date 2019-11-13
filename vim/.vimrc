@@ -162,6 +162,7 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
 inoremap <C-o> <Esc>$a<CR>
