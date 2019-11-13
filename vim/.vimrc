@@ -71,6 +71,7 @@ Plug 'kshenoy/vim-signature'
 
 "IDE{{{
 Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
 Plug 'itchyny/vim-cursorword'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
@@ -296,7 +297,8 @@ let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:airline#extensions#ale#enabled = 0
 "let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
-let g:ale_cpp_gcc_options = '-std=c++11 -Wall'
+let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
+let g:ale_cpp_clang_options = '-std=c++17 -Wall'
 let g:ale_julia_executable = '/usr/local/bin/julia'
 "}}}
 
