@@ -48,3 +48,7 @@ alias gck='git checkout'
 alias gd='git diff'
 
 alias gh='ghq look $(ghq list | peco)'
+
+alias ta='task add'
+alias tdn='task $(task +ACTIVE ids) done; task list'
+alias tl='task list'
