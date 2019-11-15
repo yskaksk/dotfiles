@@ -1,5 +1,8 @@
 #!/bin/sh
-
-if active_task=$(task active | awk '{ if (NR == 4) print $5 "(" $3 ")"}') ; then
-    echo "現在のタスク: #[bold]#[fg=green]${active_task}#[default] "
+if active_task_ids=$(task +ACTIVE ids) ; then
+    if [[ $active_task_ids != '' ]] ; then
+        description=$(task $active_task_ids information | awk '{ if ($1 == "Description") print $2 }')
+        duration=$(task $active_task_ids information | awk '{ if ($1 == "Last") print $5}')
+        echo "現在のタスク: #[bold]#[fg=green]${description} ${duration}#[default] "
+    fi
 fi
