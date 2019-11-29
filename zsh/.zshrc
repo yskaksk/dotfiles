@@ -1,5 +1,4 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export PATH=$PATH:~/venv/pyls-env/bin:~/Documents/projects/dotfiles/tmux/bin
 
 autoload -Uz vcs_info
@@ -52,3 +51,4 @@ alias gh='ghq look $(ghq list | peco)'
 alias ta='task add'
 alias tdn='task $(task +ACTIVE ids) done; task list'
 alias tl='task list'
+typeset -gU PATH
