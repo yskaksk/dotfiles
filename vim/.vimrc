@@ -33,6 +33,7 @@ if has('vim_starting')
     let &t_SR .= "\e[4 q"
 endif
 
+set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.7/Python
 if has('python3')
 endif
 
@@ -83,6 +84,7 @@ Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
+Plug 'psf/black'
 "}}}
 
 "syntax{{{

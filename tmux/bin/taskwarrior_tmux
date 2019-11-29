@@ -4,5 +4,7 @@ if active_task_ids=$(task +ACTIVE ids) ; then
         description=$(task $active_task_ids information | awk '{ if ($1 == "Description") print $2 }')
         duration=$(task $active_task_ids information | awk '{ if ($1 == "Last") print $5}')
         echo "現在のタスク: #[bold]#[fg=green]${description} ${duration}#[default] "
+    else
+        echo "現在のタスク: #[bold]なし#[default] "
     fi
 fi
