@@ -16,7 +16,7 @@ if has("unix")
         autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
         autocmd VimEnter,ColorScheme * highlight EndOfBuffer ctermbg=none
         autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
-        autocmd VimEnter,ColorScheme * highlight LineNr ctermfg=0
+        autocmd VimEnter,ColorScheme * highlight LineNr ctermfg=8
         autocmd VimEnter,ColorScheme * highlight Comment ctermfg=7
         autocmd VimEnter,ColorScheme * highlight Folded ctermbg=none ctermfg=6
     augroup END
@@ -85,6 +85,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'psf/black'
+Plug 'andymass/vim-matchup'
 "}}}
 
 "syntax{{{
@@ -149,6 +150,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set updatetime=100
+
+set cedit=<C-L>
 "}}}
 
 "mappings{{{
@@ -175,6 +178,7 @@ nnoremap <Leader>A $<Left>i
 nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>e :<C-u>e %:h<CR> 
 
+nnoremap <silent> <Leader>l :setl relativenumber!<CR>
 " buffer
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
