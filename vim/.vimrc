@@ -64,8 +64,6 @@ Plug 'vimwiki/vimwiki'
 "}}}
 
 "UI{{{
-Plug 'majutsushi/tagbar'
-Plug 'thinca/vim-splash'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'kshenoy/vim-signature'
 "}}}
