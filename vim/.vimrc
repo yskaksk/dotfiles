@@ -33,10 +33,6 @@ if has('vim_starting')
     let &t_SR .= "\e[4 q"
 endif
 
-set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.7/Python
-if has('python3')
-endif
-
 if executable("ag")
     set grepprg=ag\ --vimgrep\ -S\ --ignore\ .git
 endif
