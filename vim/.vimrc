@@ -76,7 +76,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-"Plug 'Valloric/YouCompleteMe'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
