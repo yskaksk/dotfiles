@@ -79,6 +79,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'psf/black'
 Plug 'andymass/vim-matchup'
+
+Plug 'scrooloose/nerdtree'
 "}}}
 
 "syntax{{{
