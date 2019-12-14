@@ -72,8 +72,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
@@ -86,7 +84,6 @@ Plug 'scrooloose/nerdtree'
 "syntax{{{
 Plug 'mdlerch/mc-stan.vim'
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
-""Plug 'python-mode/python-mode'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
@@ -95,7 +92,6 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'aklt/plantuml-syntax'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'dbeniamine/todo.txt-vim'
-Plug 'sophacles/vim-processing'
 "}}}
 call plug#end()
 "}}}
@@ -173,7 +169,8 @@ inoremap <C-o> <Esc>$a<CR>
 nnoremap <Leader>a $i
 nnoremap <Leader>A $<Left>i
 nnoremap <Leader>q :<C-u>q<CR>
-nnoremap <Leader>e :<C-u>e %:h<CR> 
+"nnoremap <Leader>e :<C-u>e %:h<CR> 
+nnoremap <silent> <Leader>e :<C-u>NERDTreeToggle<CR>
 
 nnoremap <silent> <Leader>l :setl relativenumber!<CR>
 " buffer
@@ -415,6 +412,13 @@ nmap <Leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_folding='custom'
 autocmd vimrc FileType vimwiki setlocal foldmethod=expr foldexpr=SmartFoldIndent(v:lnum) foldtext=IndentFoldText()
 "}}}
+
+"NERDTree{{{
+let NERDTreeIgnore=[]
+let NERDTreeShowHidden=1
+let NERDTreeWinPos='right'
+"}}}
+
 
 "session{{{
 set sessionoptions-=blank
