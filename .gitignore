@@ -2,3 +2,4 @@
 vim-plug/
 .netrwhist
 plug.vim.old
+vim/.vim/black/
