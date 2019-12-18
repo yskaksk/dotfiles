@@ -169,7 +169,6 @@ nnoremap <Leader>a $i
 nnoremap <Leader>A $<Left>i
 nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <silent> <Leader>e :<C-u>Vaffle<CR>
-nnoremap <silent> <Leader>e :<C-u>NERDTreeToggle<CR>
 
 nnoremap <silent> <Leader>l :setl relativenumber!<CR>
 " buffer
