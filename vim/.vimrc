@@ -79,8 +79,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'psf/black'
 Plug 'andymass/vim-matchup'
-
-Plug 'scrooloose/nerdtree'
+Plug 'cocopon/vaffle.vim'
 "}}}
 
 "syntax{{{
@@ -173,7 +172,7 @@ inoremap <C-o> <Esc>$a<CR>
 nnoremap <Leader>a $i
 nnoremap <Leader>A $<Left>i
 nnoremap <Leader>q :<C-u>q<CR>
-nnoremap <Leader>e :<C-u>e %:h<CR> 
+nnoremap <silent> <Leader>e :<C-u>Vaffle<CR>
 
 nnoremap <silent> <Leader>l :setl relativenumber!<CR>
 " buffer
@@ -215,15 +214,6 @@ autocmd vimrc BufEnter * highlight MatchParen ctermbg=black ctermfg=darkgreen
 " 1.mdなど（作業ログ用のファイル）を開いたときは、日時挿入用のマップを追加する
 autocmd vimrc BufRead *.md if @% =~ '\d\.md$' | imap <buffer> <C-]> [<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Space>| endif
 "}}}
-
-"netrw{{{
-let g:netrw_liststyle = 1
-let g:netrw_banner = 0
-let g:netrw_sizestyle = "H"
-let g:netrw_timefmt = "%Y/%m/%d(%a) %H:%M:%S"
-let g:netrw_preview = 0
-"}}}
-
 "}}}
 
 "plugins{{{
@@ -305,20 +295,10 @@ let g:ale_cpp_clang_options = '-std=c++17 -Wall'
 let g:ale_julia_executable = '/usr/local/bin/julia'
 "}}}
 
-"ctrlp{{{
-let g:ctrlp_by_filename = 1
-let g:ctrlp_match_window = 'bottom,order:btt,min:1, max:25,results:500'
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '1vjr'
-let g:ctrlp_lazy_update = 1
-"}}}
-
 "vim-julia{{{
 
 let g:default_julia_version = "1.0"
-let g:latex_to_unicode_tab = 0
+let g:latex_to_unicode_tab = 1
 
 autocmd vimrc FileType julia setl re=1
 autocmd vimrc FileType julia setl ttyfast
@@ -414,6 +394,10 @@ let g:vimwiki_global_ext = 0
 nmap <Leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_folding='custom'
 autocmd vimrc FileType vimwiki setlocal foldmethod=expr foldexpr=SmartFoldIndent(v:lnum) foldtext=IndentFoldText()
+"}}}
+
+"vaffle{{{
+let g:vaffle_show_hidden_files = 1
 "}}}
 
 "session{{{
