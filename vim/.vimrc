@@ -361,9 +361,8 @@ endfunction
 
 "fzf.vim{{{
 let g:fzf_command_prefix = 'Fzf'
-nnoremap <Leader>f :FzfBuffers<CR>
-":FzfFiles<CR>
-":FzfBuffers<CR>
+nnoremap <Leader>f :<C-u>FzfBuffers<CR>
+nnoremap <Leader>F :<C-u>FzfFiles<CR>
 ":FzfGFiles?<CR>
 ":FzfBCommits<CR>
 "}}}
