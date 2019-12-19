@@ -75,21 +75,21 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
-Plug 'psf/black'
+Plug 'psf/black', {'for': 'python'}
 Plug 'andymass/vim-matchup'
 Plug 'cocopon/vaffle.vim'
 "}}}
 
 "syntax{{{
-Plug 'mdlerch/mc-stan.vim'
+Plug 'mdlerch/mc-stan.vim', {'for': 'stan'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
-Plug 'rust-lang/rust.vim'
-Plug 'elixir-editors/vim-elixir'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'elixir-editors/vim-elixir', {'for': 'elixir'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'aklt/plantuml-syntax'
-Plug 'JuliaEditorSupport/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
 Plug 'dbeniamine/todo.txt-vim'
 "}}}
 call plug#end()
