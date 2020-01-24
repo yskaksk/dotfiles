@@ -23,8 +23,8 @@ if has("unix")
 endif
 
 if has('mac')
-    let g:mac_ime_off = 'osascript -e "tell application \"System Events\" to key code 102"'
-    autocmd vimrc InsertLeave * :call system(g:mac_ime_off)
+    " applescriptなど使いたくはないが、cuiのvimからIMEに干渉できないのでこのようにせざるを得ない
+    inoremap <silent> <Esc> <Esc>:call system('osascript -e "tell application \"System Events\" to key code 102"')<CR>
 endif
 
 if has('vim_starting')
@@ -37,7 +37,7 @@ if executable("ag")
     set grepprg=ag\ --vimgrep\ -S\ --ignore\ .git
 endif
 
-autocmd vimrc QuickfixcmdPost grep belowright cwindow
+autocmd vimrc QuickfixcmdPost *grep* belowright cwindow
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -75,21 +75,21 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wakatime/vim-wakatime'
-Plug 'psf/black'
+Plug 'psf/black', {'for': 'python'}
 Plug 'andymass/vim-matchup'
 Plug 'cocopon/vaffle.vim'
 "}}}
 
 "syntax{{{
-Plug 'mdlerch/mc-stan.vim'
+Plug 'mdlerch/mc-stan.vim', {'for': 'stan'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
-Plug 'rust-lang/rust.vim'
-Plug 'elixir-editors/vim-elixir'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'elixir-editors/vim-elixir', {'for': 'elixir'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'aklt/plantuml-syntax'
-Plug 'JuliaEditorSupport/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'wlangstroth/vim-racket'
 "}}}
@@ -289,17 +289,17 @@ let g:airline#extensions#ale#enabled = 0
 "let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
 let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
 let g:ale_cpp_clang_options = '-std=c++17 -Wall'
-let g:ale_julia_executable = '/usr/local/bin/julia'
+let g:ale_disable_lsp = 1
 "}}}
 
 "vim-julia{{{
 
 let g:default_julia_version = "1.0"
 let g:latex_to_unicode_tab = 1
+let g:julia_highlight_operators = 1
 
-autocmd vimrc FileType julia setl re=1
+autocmd vimrc FileType julia setl regexpengine=1
 autocmd vimrc FileType julia setl ttyfast
-autocmd vimrc FileType julia setl lazyredraw
 "}}}
 
 "git-gutter{{{
