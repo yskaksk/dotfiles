@@ -1,15 +1,14 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=$PATH:~/venv/pyls-env/bin:~/Documents/projects/dotfiles/tmux/bin
+export PATH=$PATH:~/Documents/projects/dotfiles/tmux/bin
 
 autoload -Uz vcs_info
 autoload -Uz colors && colors # black red green yellow blue magenta cyan white
 
 setopt prompt_subst # プロンプトの中で変数を参照する
-zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
-zstyle ':vcs_info:git:*' unstagedstr "%F{blue}[A]" #add されていないファイルがある → %uに格納される
-zstyle ':vcs_info:git:*' stagedstr "%F{red}[C]" #commit されていないファイルがある → %cに格納される
-zstyle ':vcs_info:*' formats "%F{green} (%b)%u%c%f" #通常
-zstyle ':vcs_info:*' actionformats ' (%b|%a)' #rebase 途中,merge コンフリクト等 formats 外の表示
+zstyle ':vcs_info:git:*' check-for-changes true      #formats 設定項目で %c,%u が使用可
+zstyle ':vcs_info:git:*' unstagedstr "%F{blue}[A]"   #add されていないファイルがある → %uに格納される
+zstyle ':vcs_info:git:*' stagedstr "%F{red}[C]"      #commit されていないファイルがある → %cに格納される
+zstyle ':vcs_info:*' formats "%F{green} (%b)%u%c%f"  #通常
+zstyle ':vcs_info:*' actionformats ' (%b|%a)'        #rebase 途中,merge コンフリクト等 formats 外の表示
 
 precmd() {vcs_info}
 PROMPT='%{$fg[yellow]%}%(4~,%-1~/../%2~,%~)>%{$reset_color%}'
@@ -46,7 +45,7 @@ alias gb='git branch -a'
 alias gck='git checkout'
 alias gd='git diff'
 
-alias gh='ghq look $(ghq list | peco)'
+alias gh='ghq look $(ghq list | fzf)'
 
 alias ta='task add'
 alias tdn='task $(task +ACTIVE ids) done; task list'
