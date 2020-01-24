@@ -23,8 +23,8 @@ if has("unix")
 endif
 
 if has('mac')
-    let g:mac_ime_off = 'osascript -e "tell application \"System Events\" to key code 102"'
-    autocmd vimrc InsertLeave * :call system(g:mac_ime_off)
+    " applescriptなど使いたくはないが、cuiのvimからIMEに干渉できないのでこのようにせざるを得ない
+    inoremap <silent> <Esc> <Esc>:call system('osascript -e "tell application \"System Events\" to key code 102"')<CR>
 endif
 
 if has('vim_starting')
@@ -37,7 +37,7 @@ if executable("ag")
     set grepprg=ag\ --vimgrep\ -S\ --ignore\ .git
 endif
 
-autocmd vimrc QuickfixcmdPost grep belowright cwindow
+autocmd vimrc QuickfixcmdPost *grep* belowright cwindow
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -288,17 +288,17 @@ let g:airline#extensions#ale#enabled = 0
 "let g:ale_python_pylint_options = '--rcfile ~/.config/pylintrc'
 let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
 let g:ale_cpp_clang_options = '-std=c++17 -Wall'
-let g:ale_julia_executable = '/usr/local/bin/julia'
+let g:ale_disable_lsp = 1
 "}}}
 
 "vim-julia{{{
 
 let g:default_julia_version = "1.0"
 let g:latex_to_unicode_tab = 1
+let g:julia_highlight_operators = 1
 
-autocmd vimrc FileType julia setl re=1
+autocmd vimrc FileType julia setl regexpengine=1
 autocmd vimrc FileType julia setl ttyfast
-autocmd vimrc FileType julia setl lazyredraw
 "}}}
 
 "git-gutter{{{
