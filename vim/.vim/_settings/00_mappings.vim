@@ -1,4 +1,5 @@
-" reload this file with F1
+" マッピング
+
 nnoremap <silent> <F1> :<C-u>source $MYVIMRC<CR>:echo "reloaded .vimrc"<CR>
 
 nnoremap ZZ <Nop>
@@ -12,6 +13,7 @@ nnoremap : ;
 nnoremap ; :
 nnoremap <C-]> <C-]>zz
 
+" emacs風
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-f> <Right>
@@ -32,15 +34,13 @@ nnoremap <Leader>A $<Left>i
 nnoremap <Leader>q :<C-u>q<CR>
 
 nnoremap <silent> <Leader>l :setl relativenumber!<CR>
-" buffer
+
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
-" arglist
 nnoremap ]a :next<CR>
 nnoremap [a :prev<CR>
 nnoremap ]A :last<CR>
 nnoremap [A :first<CR>
-" quick fix
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
 

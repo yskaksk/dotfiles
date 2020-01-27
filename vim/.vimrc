@@ -25,6 +25,7 @@ augroup vimrc
     autocmd!
 augroup END
 
+" デフォルトの設定を上書きしている{{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ","
 
@@ -70,19 +71,21 @@ endif
 if executable("ag")
     set grepprg=ag\ --vimgrep\ -S\ --ignore\ .git
 endif
+"}}}
 
+" プラグインの読み込み
+"vim-plug{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" プラグインの読み込み
-
-"vim-plug{{{
 let g:plug_shallow = 0
 
 call plug#begin('$HOME/.vim/vim-plug')
+Plug 'Lokaltog/vim-monotone'
+
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
@@ -120,5 +123,5 @@ call plug#end()
 call map(sort(split(globpath(&runtimepath, '_settings/*.vim'))), {->[execute('exec "so" v:val')]})
 
 autocmd vimrc FileType vim setlocal foldmethod=marker
-syntax enable
+syntax off
 filetype plugin on
