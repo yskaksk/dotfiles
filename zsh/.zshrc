@@ -1,4 +1,4 @@
-export PATH=$PATH:~/Documents/projects/dotfiles/tmux/bin
+export PATH=$PATH:~/Documents/projects/dotfiles/tmux/bin:~/.nodebrew/node/v13.7.0/bin
 
 autoload -Uz vcs_info
 autoload -Uz colors && colors # black red green yellow blue magenta cyan white
