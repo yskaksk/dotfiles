@@ -7,7 +7,7 @@ elseif globpath(&rtp, "colors/molokai.vim") != ""
 endif
 
 function! HighLightInTerminal()
-    highlight Normal ctermfg=247 ctermbg=none
+    highlight Normal ctermfg=249 ctermbg=none
     highlight LineNr ctermfg=8   ctermbg=none
     highlight Folded ctermfg=6   ctermbg=none
     highlight EndOfBuffer ctermbg=none
