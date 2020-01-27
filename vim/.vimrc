@@ -113,10 +113,13 @@ Plug 'tpope/vim-surround'
 Plug 'rhysd/clever-f.vim'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'w0rp/ale'
 Plug 'wakatime/vim-wakatime'
 Plug 'wlangstroth/vim-racket'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 call plug#end()
 "}}}
 
