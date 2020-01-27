@@ -74,7 +74,8 @@ endif
 "}}}
 
 " プラグインの読み込み
-"vim-plug{{{
+" vim-plug{{{
+" (参考) https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -84,8 +85,6 @@ endif
 let g:plug_shallow = 0
 
 call plug#begin('$HOME/.vim/vim-plug')
-Plug 'Lokaltog/vim-monotone'
-
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
@@ -102,6 +101,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'Lokaltog/vim-monotone'
 Plug 'mdlerch/mc-stan.vim', {'for': 'stan'}
 Plug 'psf/black', {'for': 'python'}
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
