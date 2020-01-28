@@ -13,9 +13,10 @@ nnoremap : ;
 nnoremap ; :
 nnoremap <C-]> <C-]>zz
 
-" emacs風
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
+
+" emacs風
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-a> <Home>

@@ -73,8 +73,7 @@ if executable("ag")
 endif
 "}}}
 
-" プラグインの読み込み
-" vim-plug{{{
+" プラグインの読み込み{{{
 " (参考) https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -122,6 +121,5 @@ call plug#end()
 
 call map(sort(split(globpath(&runtimepath, '_settings/*.vim'))), {->[execute('exec "so" v:val')]})
 
-autocmd vimrc FileType vim setlocal foldmethod=marker
 syntax off
 filetype plugin on

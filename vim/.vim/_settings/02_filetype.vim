@@ -5,5 +5,10 @@ autocmd vimrc FileType help nnoremap <buffer> q <C-w>c
 autocmd vimrc FileType help nnoremap <buffer> <CR> <C-]>
 autocmd vimrc FileType help setlocal number
 
+" vimrc
+autocmd vimrc FileType vim setlocal foldmethod=marker
+
 " python
-autocmd vimrc FileType python setlocal keywordprg=pydoc3
+if executable('pydoc3')
+    autocmd vimrc FileType python setlocal keywordprg=pydoc3
+endif

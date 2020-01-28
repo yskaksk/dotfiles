@@ -20,7 +20,7 @@ endfunction
 if has("unix")
     augroup cs_term
         autocmd!
-        autocmd VimEnter,ColorScheme * :call HighLightInTerminal()
+        autocmd VimEnter,ColorScheme * call HighLightInTerminal()
     augroup END
 endif
 
