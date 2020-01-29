@@ -1,20 +1,17 @@
 " カラースキームの設定
 
-if globpath(&rtp, "colors/monotone") != ""
-    colorscheme monotone
+if globpath(&rtp, "colors/badwolf.vim") != ""
+    colorscheme badwolf
 elseif globpath(&rtp, "colors/molokai.vim") != ""
     colorscheme molokai
-elseif globpath(&rtp, "colors/badwolf.vim") != ""
-    colorscheme badwolf
 endif
 
+" (参考) https://jonasjacek.github.io/colors/
 function! HighLightInTerminal()
-    highlight Normal ctermbg=none
+    highlight Normal ctermfg=249 ctermbg=none
+    highlight LineNr ctermfg=8   ctermbg=none
+    highlight Folded ctermfg=6   ctermbg=none
     highlight EndOfBuffer ctermbg=none
-    highlight LineNr ctermbg=none
-    highlight LineNr ctermfg=8
-    highlight Comment ctermfg=7
-    highlight Folded ctermbg=none ctermfg=6
 endfunction
 
 if has("unix")

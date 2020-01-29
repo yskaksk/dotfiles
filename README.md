@@ -46,3 +46,18 @@ sudo vim /etc/shells
 7. シンボリックリンクの設定
 8. google/slackなどのアカウントの設定
 
+
+### npmの導入手順
+
+1. brew でnodebrewをインストールする
+
+```
+brew install nodebrew
+```
+
+2. nodebrew でNode.jsとnpmをインストールする
+
+```
+mkdir -p ~/.nodebrew/src
+nodebrew install-binary latest
+```
