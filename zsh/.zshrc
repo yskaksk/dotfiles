@@ -1,4 +1,4 @@
-export PATH=$PATH:~/Documents/projects/dotfiles/tmux/bin:~/.nodebrew/node/v13.7.0/bin
+[ -f $HOME/.zshrc.local.path ] && source $HOME/.zshrc.local.path
 
 autoload -Uz vcs_info
 autoload -Uz colors && colors # black red green yellow blue magenta cyan white
@@ -51,3 +51,5 @@ alias ta='task add'
 alias tdn='task $(task +ACTIVE ids) done; task list'
 alias tl='task list'
 typeset -gU PATH
+
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
