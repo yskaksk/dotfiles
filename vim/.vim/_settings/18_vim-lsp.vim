@@ -12,3 +12,14 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'priority': 10,
     \ 'completor': function('asyncomplete#sources#file#completor')
     \ }))
+
+function! Set_lsp_mappings() abort
+    if exists(":LspDefinition") == 2
+        nnoremap <buffer> <C-k> :<C-u>LspDefinition<CR>
+    endif
+endfunction
+
+augroup LspSettings
+    autocmd!
+    autocmd BufEnter * call Set_lsp_mappings()
+augroup END
