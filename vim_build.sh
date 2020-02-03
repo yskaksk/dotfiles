@@ -1,7 +1,11 @@
-sourcedir='/home/akasaka/Documents/github/vim'
-
-cd $sourcedir
-
-./configure --with-futures=huge --enable-python3interp=yes --enable-luainterp=yes --enable-terminal=yes --enable-if-missing=yes
+# リポジトリのルートで実行する
+make clean && \
+./configure --with-features=huge \
+            --with-compiledby=yskaksk \
+            --enable-pythoninterp=no \
+            --enable-python3interp=yes --with-python3-command=`which python3` \
+            --enable-terminal=yes \
+            --enable-multibyte \
+            --enable-fail-if-missing=yes
 make
 sudo make install

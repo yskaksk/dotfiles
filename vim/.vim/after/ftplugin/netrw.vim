@@ -1,1 +1,2 @@
 setlocal number
+setlocal nolist
