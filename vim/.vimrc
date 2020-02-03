@@ -86,24 +86,17 @@ let g:plug_shallow = 0
 call plug#begin('$HOME/.vim/vim-plug')
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
-Plug 'aklt/plantuml-syntax'
 Plug 'andymass/vim-matchup'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'cocopon/vaffle.vim'
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'elixir-editors/vim-elixir', {'for': 'elixir'}
-Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-Plug 'Lokaltog/vim-monotone'
-Plug 'mdlerch/mc-stan.vim', {'for': 'stan'}
 Plug 'psf/black', {'for': 'python'}
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'sjl/badwolf'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-endwise'
@@ -128,3 +121,5 @@ call map(sort(split(globpath(&runtimepath, '_settings/*.vim'))), {->[execute('ex
 
 syntax off
 filetype plugin on
+
+" (全体的に参考にした記事) https://mattn.kaoriya.net/software/vim/20191231001537.htm
