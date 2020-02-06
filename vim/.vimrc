@@ -92,7 +92,7 @@ Plug 'cocopon/vaffle.vim'
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
+"Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'

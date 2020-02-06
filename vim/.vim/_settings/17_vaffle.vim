@@ -4,6 +4,7 @@ endif
 
 let g:vaffle_show_hidden_files = 1
 let g:vaffle_use_default_mappings = 0
+let g:vaffle_open_selected_split_position = 'rightbelow'
 
 function! s:customize_vaffle_mappings() abort
     nmap <buffer> H <Plug>(vaffle-open-home)
@@ -23,6 +24,7 @@ function! s:customize_vaffle_mappings() abort
     "nmap <buffer> x <Plug>(vaffle-fill-cmdline)
     nmap <buffer> <Space> <Plug>(vaffle-toggle-current)
     vmap <buffer> <Space> <Plug>(vaffle-toggle-current)
+    nmap <buffer> s <Plug>(vaffle-open-selected-split)
 endfunction
 
 augroup vaffle_map

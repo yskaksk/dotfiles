@@ -11,3 +11,6 @@ autocmd vimrc FileType vim setlocal foldmethod=marker
 if executable('pydoc3')
     autocmd vimrc FileType python setlocal keywordprg=pydoc3
 endif
+
+" julia
+autocmd vimrc BufRead,BufNewFile *.jl set filetype=julia

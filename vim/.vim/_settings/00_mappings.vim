@@ -12,6 +12,7 @@ nnoremap gk k
 nnoremap : ;
 nnoremap ; :
 nnoremap <C-]> <C-]>zz
+nnoremap L %
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -41,6 +42,7 @@ nnoremap [q :cprev<CR>
 
 nnoremap <C-t> :terminal ++close<CR>
 nnoremap <Leader>r <C-w>r<C-w><C-w>
+nnoremap <expr> <Leader>s ':belowright split ' . expand('%:h') . '/'
 
 cnoremap <C-p> <UP>
 cnoremap <C-n> <DOWN>
