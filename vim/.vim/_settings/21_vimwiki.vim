@@ -9,8 +9,6 @@ let g:vimwiki_folding='custom'
 nmap <Leader>tt <Plug>VimwikiToggleListItem
 
 autocmd vimrc FileType vimwiki setlocal foldmethod=expr foldexpr=SmartFoldIndent(v:lnum) foldtext=IndentFoldText()
-autocmd vimrc FileType vimwiki nnoremap i setlocal nocursorline<CR>i
-autocmd vimrc FileType vimwiki inoremap <ESC> <ESC>:setlocal cursorline<CR>
 
 function! SmartFoldIndent(lnum)
     if getline(a:lnum) =~? '\v^\s*$'

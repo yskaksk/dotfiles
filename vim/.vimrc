@@ -48,6 +48,7 @@ set noswapfile
 set nowritebackup
 set number
 set shiftwidth=4
+set showtabline=0
 set signcolumn=yes
 set smarttab
 set synmaxcol=200

@@ -42,7 +42,7 @@ nnoremap [q :cprev<CR>
 
 nnoremap <C-t> :terminal ++close<CR>
 nnoremap <Leader>r <C-w>r<C-w><C-w>
-nnoremap <expr> <Leader>s ':belowright split ' . expand('%:h') . '/'
+nnoremap <expr> <Leader>s ':bel sp ' . expand('%:h') . '/'
 
 cnoremap <C-p> <UP>
 cnoremap <C-n> <DOWN>
