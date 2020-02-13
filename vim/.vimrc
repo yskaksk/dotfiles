@@ -93,7 +93,6 @@ Plug 'cocopon/vaffle.vim'
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-"Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
@@ -114,7 +113,8 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'machakann/vim-lsp-julia'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'ajpaulson/julia-syntax.vim'
 call plug#end()
 "}}}
 

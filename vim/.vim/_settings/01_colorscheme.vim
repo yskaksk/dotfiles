@@ -13,6 +13,7 @@ function! HighLightInTerminal()
     highlight Folded ctermfg=6   ctermbg=none
     highlight CursorLine ctermbg=DarkGrey ctermfg=252
     highlight EndOfBuffer ctermbg=none
+    highlight VertSplit cterm=NONE ctermbg=233 ctermfg=233
 endfunction
 
 if has("unix")
