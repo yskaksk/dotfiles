@@ -120,7 +120,7 @@ call plug#end()
 
 call map(sort(split(globpath(&runtimepath, '_settings/*.vim'))), {->[execute('exec "so" v:val')]})
 
-syntax off
+syntax on
 filetype plugin on
 
 " (全体的に参考にした記事) https://mattn.kaoriya.net/software/vim/20191231001537.htm
