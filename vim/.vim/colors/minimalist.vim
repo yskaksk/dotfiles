@@ -10,7 +10,7 @@ let g:colors_name="minimalist"
 highlight Normal          ctermfg=250  ctermbg=none
 highlight Comment         ctermfg=247
 
-highlight Directory       ctermfg=250                cterm=bold
+highlight Directory       ctermfg=154                cterm=bold
 
 highlight Constant        ctermfg=141                cterm=none
 highlight String          ctermfg=222                cterm=none

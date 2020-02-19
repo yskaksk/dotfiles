@@ -5,10 +5,6 @@ nnoremap <silent> <F1> :<C-u>source $MYVIMRC<CR>:echo "reloaded .vimrc"<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
 nnoremap : ;
 nnoremap ; :
 nnoremap <C-]> <C-]>zz
