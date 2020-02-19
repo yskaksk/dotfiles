@@ -87,7 +87,7 @@ let g:plug_shallow = 0
 call plug#begin('$HOME/.vim/vim-plug')
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
-Plug 'andymass/vim-matchup'
+"Plug 'andymass/vim-matchup'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'cocopon/vaffle.vim'
 Plug 'dbeniamine/todo.txt-vim'
@@ -114,7 +114,8 @@ Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ajpaulson/julia-syntax.vim'
+"Plug 'ajpaulson/julia-syntax.vim'
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 "}}}
 

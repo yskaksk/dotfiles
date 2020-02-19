@@ -40,7 +40,12 @@ nnoremap [A :first<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
 
-nnoremap <C-t> :terminal ++close<CR>
+"nnoremap <C-t> :terminal ++close<CR>
+command! PTerminal call popup_create(term_start(['zsh'],#{hidden:1,term_finish:'close'}),#{
+            \ border:[],
+            \ minwidth:120,
+            \ minheight:40})
+nnoremap <C-t> :PTerminal<CR>
 nnoremap <Leader>R <C-w>r<C-w><C-w>
 nnoremap <expr> <Leader>s ':bel sp ' . expand('%:h') . '/'
 
@@ -63,7 +68,7 @@ if has('mac')
 endif
 
 runtime! ftplugin/man.vim
-nnoremap <Leader>K :<C-u>Man 
+nnoremap <Leader>K :<C-u>Man<Space>
 
 map  <MiddleMouse>   <Nop>
 map  <2-MiddleMouse> <Nop>

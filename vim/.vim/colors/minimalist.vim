@@ -7,28 +7,30 @@ highlight clear
 let g:colors_name="minimalist"
 
 "（参考）:help group-name
-highlight Normal          ctermfg=247  ctermbg=none
-highlight Comment         ctermfg=244
+highlight Normal          ctermfg=250  ctermbg=none
+highlight Comment         ctermfg=247
 
 highlight Directory       ctermfg=250                cterm=bold
 
-highlight Constant        ctermfg=247                cterm=none
-highlight String          ctermfg=247                cterm=none
-highlight Character       ctermfg=247
-highlight Number          ctermfg=247
-highlight Boolean         ctermfg=247
-highlight Float           ctermfg=247
+highlight Constant        ctermfg=141                cterm=none
+highlight String          ctermfg=222                cterm=none
+highlight Character       ctermfg=222
+highlight Number          ctermfg=250
+highlight Boolean         ctermfg=141
+highlight Float           ctermfg=250
+
+highlight Terminal                     ctermbg=232
 
 highlight Identifier      ctermfg=250               cterm=none
 highlight Function        ctermfg=250
 
-highlight Statement       ctermfg=250               cterm=none
-highlight Conditional     ctermfg=250               cterm=none
-highlight Repeat          ctermfg=250               cterm=none
-highlight Label           ctermfg=250               cterm=none
-highlight Operator        ctermfg=250               cterm=none
-highlight Keyword         ctermfg=250               cterm=none
-highlight Exception       ctermfg=250               cterm=none
+highlight Statement       ctermfg=197               cterm=none
+highlight Conditional     ctermfg=197               cterm=none
+highlight Repeat          ctermfg=197               cterm=none
+highlight Label           ctermfg=197               cterm=none
+highlight Operator        ctermfg=197               cterm=none
+highlight Keyword         ctermfg=197               cterm=none
+highlight Exception       ctermfg=197               cterm=none
 
 highlight PreProc         ctermfg=250
 highlight Include         ctermfg=250
@@ -43,14 +45,14 @@ highlight Typedef         ctermfg=250
 
 highlight Special         ctermfg=250
 highlight SpecialChar     ctermfg=250               cterm=bold
-highlight Tag             ctermfg=125
-highlight Delimiter       ctermfg=247
+highlight Tag             ctermfg=197
+highlight Delimiter       ctermfg=250
 highlight SpecialComment  ctermfg=250               cterm=bold
 highlight Debug           ctermfg=225               cterm=bold
 
 
 highlight Cursor          ctermfg=16   ctermbg=253
-highlight CursorLine                   ctermbg=238   cterm=none
+highlight CursorLine                   ctermbg=242   cterm=none
 highlight CursorLineNr    ctermfg=252                cterm=none
 
 highlight DiffAdd                      ctermbg=24
