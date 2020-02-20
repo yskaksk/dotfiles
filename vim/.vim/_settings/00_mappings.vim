@@ -55,9 +55,6 @@ cnoremap <C-b> <Left>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" 1.mdなど（作業ログ用のファイル）を開いたときは、日時挿入用のマップを追加する
-autocmd vimrc BufRead *.md if @% =~ '\d\.md$' | imap <buffer> <C-]> [<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Space>| endif
-
 if has('mac')
     " applescriptなど使いたくはないが、cuiのvimからIMEに干渉できないのでこのようにせざるを得ない
     inoremap <silent> <Esc> <Esc>:call system('osascript -e "tell application \"System Events\" to key code 102"')<CR>
