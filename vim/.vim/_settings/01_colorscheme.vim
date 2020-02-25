@@ -3,6 +3,6 @@ colorscheme minimalist
 
 augroup vimrc
     autocmd!
-    autocmd BufEnter * setl cursorline
-    autocmd BufLeave * setl nocursorline
+    autocmd BufEnter,InsertLeave * setl cursorline
+    autocmd BufLeave,InsertEnter * setl nocursorline
 augroup END
