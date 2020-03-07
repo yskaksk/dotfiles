@@ -2,6 +2,10 @@
 
 finish
 
+function! s:post_to_slack(...) abort
+
+endfunction
+
 "grep{{{
 function! s:silently_grep(...) abort
     " a:1 is-git-grep-flg
