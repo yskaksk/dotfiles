@@ -36,8 +36,6 @@ nnoremap [A :first<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
 
-command! PTerminal call popup_create(term_start(['zsh'],#{hidden:1,term_finish:'close'}),#{border:[],minwidth:140,minheight:40})
-nnoremap <C-t> :PTerminal<CR>
 nnoremap <Leader>R <C-w>r<C-w><C-w>
 nnoremap <expr> <Leader>s ':bel sp ' . expand('%:h') . '/'
 
