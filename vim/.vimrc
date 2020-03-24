@@ -85,36 +85,37 @@ endif
 let g:plug_shallow = 0
 
 call plug#begin('$HOME/.vim/vim-plug')
-Plug '907th/vim-auto-save'
-Plug 'airblade/vim-gitgutter'
-Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'cocopon/vaffle.vim'
-Plug 'dbeniamine/todo.txt-vim'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'sjl/badwolf'
+Plug 'psf/black', {'for': 'python'}
+Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'psf/black', {'for': 'python'}
-Plug 'sjl/badwolf'
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'tomasr/molokai'
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'dbeniamine/todo.txt-vim'
+Plug 'cocopon/vaffle.vim'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug '907th/vim-auto-save'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'rhysd/clever-f.vim'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'vimwiki/vimwiki'
-Plug 'wakatime/vim-wakatime'
-Plug 'wlangstroth/vim-racket'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'wlangstroth/vim-racket'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-surround'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'JuliaEditorSupport/julia-vim'
+Plug 'wakatime/vim-wakatime'
+Plug 'vimwiki/vimwiki'
 call plug#end()
+" :sort /\/.\+'/ r
 "}}}
 
 call map(sort(split(globpath(&runtimepath, '_settings/*.vim'))), {->[execute('exec "so" v:val')]})
