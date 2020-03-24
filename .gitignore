@@ -3,3 +3,4 @@ vim-plug/
 .netrwhist
 plug.vim.old
 vim/.vim/black/
+vim/.vim/autoload/plug.vim
