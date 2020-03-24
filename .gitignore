@@ -1,6 +1,6 @@
 .ropeproject/
 vim-plug/
 .netrwhist
+plug.vim
 plug.vim.old
 vim/.vim/black/
-vim/.vim/autoload/plug.vim
