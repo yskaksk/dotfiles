@@ -36,7 +36,7 @@ alias ls='ls -aG'
 alias ll='ls -lG'
 alias cdp='cd ~/Documents/projects'
 
-alias gs='git status'
+alias gs='git status --short --branch'
 alias ga='git add'
 alias gap='git add -p'
 alias gc='git commit -m'
