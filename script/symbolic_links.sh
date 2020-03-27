@@ -1,6 +1,6 @@
 #!/bin/bash
 
-root_dir=$(cd $(dirname $(dirname $0)); pwd)
+root_dir=$(cd $(dirname $(cd $(dirname $0))); pwd)
 
 # vim
 ln -s $root_dir/vim/.vim $HOME/.vim
