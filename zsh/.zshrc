@@ -45,7 +45,7 @@ alias gb='git branch -a'
 alias gck='git checkout'
 alias gd='git diff'
 
-ghq_root=$HOME/ghq
+ghq_root=$(ghq root)
 alias gh='cd $ghq_root/$(ghq list | fzf)'
 
 alias ta='task add'
