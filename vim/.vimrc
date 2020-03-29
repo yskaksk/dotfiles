@@ -112,7 +112,6 @@ Plug 'tpope/vim-surround'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'wakatime/vim-wakatime'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 " :sort /\/.\+'/ r
