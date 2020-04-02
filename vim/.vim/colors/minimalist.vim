@@ -1,6 +1,8 @@
 " Vim color file
 "
 " Author: yskaksk
+"
+" https://github.com/tomasr/molokai を参考にしている
 
 highlight clear
 

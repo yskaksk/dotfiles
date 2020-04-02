@@ -24,6 +24,7 @@ inoremap <C-o> <Esc>$a<CR>
 nnoremap <Leader>a $i
 nnoremap <Leader>A $<Left>i
 nnoremap <Leader>q :<C-u>q<CR>
+nnoremap <Leader>L :set list!<CR>
 
 nnoremap <silent> <Leader>l :setl relativenumber!<CR>
 
