@@ -94,6 +94,7 @@ Plug 'psf/black', {'for': 'python'}
 Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'tomasr/molokai'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
