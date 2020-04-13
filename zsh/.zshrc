@@ -31,7 +31,7 @@ export LSCOLORS=GxgxdxbxCxegedabagacad
 export LS_COLORS='no=00:fi=00:di=01;36:ln=36:pi=31:so=33:bd=44;37:cd=44;37:ex=01;32:mi=00:or=36'
 
 # alias
-alias sz='source ~/.zshrc'
+alias sz='source ~/.zshrc; echo reloaded .zshrc'
 alias ls='ls -aG'
 alias ll='ls -lG'
 alias cdp='cd ~/Documents/projects'
@@ -45,8 +45,7 @@ alias gb='git branch -a'
 alias gck='git checkout'
 alias gd='git diff'
 
-ghq_root=$(ghq root)
-alias gh='cd $ghq_root/$(ghq list | fzf)'
+alias gh='cd $(ghq root)/$(ghq list | fzf)'
 
 alias ta='task add'
 alias tdn='task $(task +ACTIVE ids) done; task list'
