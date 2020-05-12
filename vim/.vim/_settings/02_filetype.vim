@@ -20,3 +20,6 @@ autocmd vimrc BufRead *.md if @% =~ '\d\.md$' | imap <buffer> <C-]> [<C-R>=strft
 
 " man
 autocmd vimrc FileType man setlocal nolist
+
+" go
+autocmd vimrc FileType go setlocal noexpandtab

@@ -45,7 +45,20 @@ alias gb='git branch -a'
 alias gck='git checkout'
 alias gd='git diff'
 
-alias gh='cd $(ghq root)/$(ghq list | fzf)'
+function fzf-ghq-look() {
+    local ghq_roots=$(ghq root --all)
+    local ghq_root_str=(${ghq_roots/$'\n'/|})
+    local selected_dir=$(ghq list --full-path | \
+        xargs -I@ stat -f "%a %N" @/.git | sort -nr | awk '{print $2}' | \
+        sed -E "s#($ghq_root_str)##g" | sed -e "s#/\.git##g" | \
+        fzf --prompt="choose repo > " --no-multi)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd $(ghq list --full-path | grep --color=never -E $selected_dir)"
+        zle accept-line
+    fi
+}
+zle -N fzf-ghq-look
+bindkey '^G' fzf-ghq-look
 
 alias ta='task add'
 alias tdn='task $(task +ACTIVE ids) done; task list'

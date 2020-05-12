@@ -42,6 +42,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set list
+set listchars=tab:>-
 set matchpairs& matchpairs+=<:>
 set nobackup
 set noswapfile
@@ -114,6 +115,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vimwiki/vimwiki'
+Plug 'zah/nim.vim'
 call plug#end()
 " :sort /\/.\+'/ r
 "}}}
