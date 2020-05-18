@@ -50,7 +50,8 @@ function fzf-ghq-look() {
     local ghq_root_str=(${ghq_roots/$'\n'/|})
     local selected_dir=$(ghq list --full-path | \
         xargs -I@ stat -f "%a %N" @/.git | sort -nr | awk '{print $2}' | \
-        sed -E "s#($ghq_root_str)##g" | sed -e "s#/\.git##g" | \
+        sed -E "s#($ghq_root_str)##g" | sed -e "s#/\.git##g" | sed -e "s#^\/##g" | \
+        awk -F'[/]' '{print $2"/"$3}' | \
         fzf --prompt="choose repo > " --no-multi)
     if [ -n "$selected_dir" ]; then
         BUFFER="cd $(ghq list --full-path | grep --color=never -E $selected_dir)"
