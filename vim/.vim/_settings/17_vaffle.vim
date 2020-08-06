@@ -32,4 +32,4 @@ augroup vaffle_map
     autocmd FileType vaffle call s:customize_vaffle_mappings()
 augroup END
 
-nnoremap <silent> <Leader>e :<C-u>Vaffle<CR>
+nnoremap <silent> <Leader>e :<C-u>Vaffle %:h<CR>

@@ -116,6 +116,7 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vimwiki/vimwiki'
 Plug 'zah/nim.vim'
+Plug 'sophacles/vim-processing'
 call plug#end()
 " :sort /\/.\+'/ r
 "}}}
