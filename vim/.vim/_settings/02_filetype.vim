@@ -15,9 +15,6 @@ endif
 " julia
 autocmd vimrc BufRead,BufNewFile *.jl set filetype=julia
 
-" 1.mdなど（作業ログ用のファイル）を開いたときは、日時挿入用のマップを追加する
-autocmd vimrc BufRead *.md if @% =~ '\d\.md$' | imap <buffer> <C-]> [<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]<Space>| endif
-
 " man
 autocmd vimrc FileType man setlocal nolist
 
