@@ -44,6 +44,7 @@ alias gn='git checkout -b'
 alias gb='git branch -a'
 alias gck='git checkout'
 alias gd='git diff'
+alias gh='git rev-parse --short HEAD'
 
 function fzf-ghq-look() {
     local ghq_roots=$(ghq root --all)
@@ -54,7 +55,7 @@ function fzf-ghq-look() {
         awk -F'[/]' '{print $2"/"$3}' | \
         fzf --prompt="choose repo > " --no-multi)
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd $(ghq list --full-path | grep --color=never -E $selected_dir)"
+        BUFFER="cd $(ghq list --full-path | grep --color=never -E $selected_dir\$)"
         zle accept-line
     fi
 }
