@@ -49,11 +49,6 @@ cnoremap <C-b> <Left>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-if has('mac')
-    " applescriptなど使いたくはないが、cuiのvimからIMEに干渉できないのでこのようにせざるを得ない
-    inoremap <silent> <Esc> <Esc>:call system('osascript -e "tell application \"System Events\" to key code 102"')<CR>
-endif
-
 runtime! ftplugin/man.vim
 nnoremap <Leader>K :<C-u>Man<Space>
 

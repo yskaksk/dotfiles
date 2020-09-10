@@ -1,5 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
+filetype plugin indent off
 
 " 不要なプラグインの読み込みを抑制する{{{
 let g:loaded_2html_plugin      = 1
@@ -117,6 +118,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'vimwiki/vimwiki'
 Plug 'zah/nim.vim'
 Plug 'sophacles/vim-processing'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 " :sort /\/.\+'/ r
 "}}}
@@ -124,6 +126,6 @@ call plug#end()
 call map(sort(split(globpath(&runtimepath, '_settings/*.vim'))), {->[execute('exec "so" v:val')]})
 
 syntax on
-filetype plugin on
+filetype plugin indent on
 
 " (全体的に参考にした記事) https://mattn.kaoriya.net/software/vim/20191231001537.htm
