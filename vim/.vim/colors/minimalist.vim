@@ -9,7 +9,7 @@ highlight clear
 let g:colors_name="minimalist"
 
 "（参考）:help group-name
-highlight Normal          ctermfg=250  ctermbg=none
+highlight Normal          ctermfg=250  ctermbg=234
 highlight Comment         ctermfg=247
 
 highlight Directory       ctermfg=154                cterm=bold

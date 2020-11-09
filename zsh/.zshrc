@@ -44,7 +44,9 @@ alias gn='git checkout -b'
 alias gb='git branch -a'
 alias gck='git checkout'
 alias gd='git diff'
-alias gh='git rev-parse --short HEAD'
+alias ghead='git rev-parse --short HEAD'
+
+[ ((${+commands[gh]})) ] && eval "$(gh completion -s zsh)"
 
 function fzf-ghq-look() {
     local ghq_roots=$(ghq root --all)
