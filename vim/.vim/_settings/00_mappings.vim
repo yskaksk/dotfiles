@@ -13,6 +13,12 @@ nnoremap L %
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+
 " emacs風
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
