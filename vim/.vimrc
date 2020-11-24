@@ -42,6 +42,7 @@ set hidden
 set hlsearch
 set ignorecase
 set incsearch
+set laststatus=0
 set list
 set listchars=tab:>-
 set matchpairs& matchpairs+=<:>
