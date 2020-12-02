@@ -44,6 +44,7 @@ nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
 
 nnoremap <Leader>R <C-w>r<C-w><C-w>
+nnoremap <Leader>n :echo expand("%:h:t") . "/" . expand("%:t")<CR>
 
 cnoremap <C-p> <UP>
 cnoremap <C-n> <DOWN>

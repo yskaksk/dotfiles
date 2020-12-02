@@ -42,7 +42,6 @@ set hidden
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=0
 set list
 set listchars=tab:>-
 set matchpairs& matchpairs+=<:>
@@ -103,7 +102,7 @@ Plug 'tomasr/molokai'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'cocopon/vaffle.vim'
-"Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug '907th/vim-auto-save'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
