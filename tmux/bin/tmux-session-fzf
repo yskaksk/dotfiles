@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$TMUX" ]; then
-  SELECTED="$(tmux list-sessions -F "#S" | fzf-tmux -d 10% | cut -d : -f 1)"
+  SELECTED="$(tmux list-sessions -F "#S" | fzf-tmux -d 15%)"
   if [ -n "$SELECTED" ]; then
     tmux switch -t $SELECTED
   fi
