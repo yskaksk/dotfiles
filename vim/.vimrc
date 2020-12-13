@@ -48,7 +48,6 @@ set matchpairs& matchpairs+=<:>
 set nobackup
 set noswapfile
 set nowritebackup
-set number
 set shiftwidth=4
 set showtabline=0
 set signcolumn=yes
