@@ -34,7 +34,6 @@ export LS_COLORS='no=00:fi=00:di=01;36:ln=36:pi=31:so=33:bd=44;37:cd=44;37:ex=01
 alias sz='source ~/.zshrc; echo reloaded .zshrc'
 alias ls='ls -aG'
 alias ll='ls -lG'
-alias cdp='cd ~/Documents/projects'
 
 alias gs='git status --short --branch'
 alias ga='git add'
