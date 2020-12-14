@@ -15,6 +15,17 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'completor': function('asyncomplete#sources#file#completor')
     \ }))
 
+let g:lsp_settings_root_markers = ['Project.toml', '.git', '.git/']
+let g:lsp_settings = {
+\  'julia-language-server': {
+\    'cmd': ['julia', '-e', '
+\        using LanguageServer;
+\        using LanguageServer.SymbolServer;
+\        runserver();', '.',
+\     ]
+\  }
+\}
+
 function! Set_lsp_mappings() abort
     if exists(":LspDefinition") == 2
         nnoremap <buffer> <C-k> :<C-u>LspDefinition<CR>

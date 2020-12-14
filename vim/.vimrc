@@ -114,6 +114,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'zah/nim.vim'
 Plug 'sophacles/vim-processing'
 Plug 'Yggdroot/indentLine'
+Plug 'cocopon/inspecthi.vim'
 call plug#end()
 " :sort /\/.\+'/ r
 "}}}
