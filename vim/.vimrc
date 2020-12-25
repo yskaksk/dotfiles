@@ -115,6 +115,7 @@ Plug 'zah/nim.vim'
 Plug 'sophacles/vim-processing'
 Plug 'Yggdroot/indentLine'
 Plug 'cocopon/inspecthi.vim'
+Plug 'jsborjesson/vim-uppercase-sql'
 call plug#end()
 " :sort /\/.\+'/ r
 "}}}
