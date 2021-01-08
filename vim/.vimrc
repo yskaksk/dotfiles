@@ -91,7 +91,6 @@ Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'sjl/badwolf'
-Plug 'psf/black', {'for': 'python'}
 Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
@@ -124,5 +123,3 @@ call map(sort(split(globpath(&runtimepath, '_settings/*.vim'))), {->[execute('ex
 
 syntax on
 filetype plugin indent on
-
-" (全体的に参考にした記事) https://mattn.kaoriya.net/software/vim/20191231001537.htm
