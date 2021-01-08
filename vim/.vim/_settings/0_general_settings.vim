@@ -1,5 +1,3 @@
-finish
-
 " マッピング {{{
 
 nnoremap <silent> <F1> :<C-u>source $MYVIMRC<CR>:echo "reloaded .vimrc"<CR>
