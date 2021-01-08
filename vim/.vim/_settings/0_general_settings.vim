@@ -1,4 +1,6 @@
-" マッピング
+finish
+
+" マッピング {{{
 
 nnoremap <silent> <F1> :<C-u>source $MYVIMRC<CR>:echo "reloaded .vimrc"<CR>
 
@@ -67,3 +69,48 @@ imap <MiddleMouse>   <Nop>
 imap <2-MiddleMouse> <Nop>
 imap <3-MiddleMouse> <Nop>
 imap <4-MiddleMouse> <Nop>
+"}}}
+
+" カラースキームの設定 {{{
+colorscheme minimalist
+
+augroup vimrc
+    autocmd!
+    autocmd BufEnter,InsertLeave * setl cursorline
+    autocmd BufLeave,InsertEnter * setl nocursorline
+augroup END
+"}}}
+
+" ファイルタイプ関連{{{
+" help
+autocmd vimrc FileType help nnoremap <buffer> J }
+autocmd vimrc FileType help nnoremap <buffer> K {
+autocmd vimrc FileType help nnoremap <buffer> q <C-w>c
+autocmd vimrc FileType help nnoremap <buffer> <CR> <C-]>
+
+" vimrc
+autocmd vimrc FileType vim setlocal foldmethod=marker
+
+" python
+if executable('pydoc3')
+    autocmd vimrc FileType python setlocal keywordprg=pydoc3
+endif
+
+" julia
+autocmd vimrc BufRead,BufNewFile *.jl set filetype=julia
+
+" man
+autocmd vimrc FileType man setlocal nolist
+
+" go
+autocmd vimrc FileType go setlocal noexpandtab
+"}}}
+
+" 自作コマンド{{{
+command! PTerminal call popup_create(term_start(['zsh'],#{hidden:1,term_finish:'close'}),#{border:[],minwidth:140,minheight:40})
+nnoremap <C-t> :PTerminal<CR>
+"}}}
+
+" autocmd{{{
+autocmd vimrc QuickfixcmdPost *grep* belowright cwindow
+"}}}
