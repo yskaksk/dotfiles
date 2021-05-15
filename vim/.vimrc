@@ -35,6 +35,7 @@ set cedit=<C-L>
 set clipboard=unnamed
 set completeopt-=preview
 set cursorline
+set conceallevel=0
 set expandtab
 set fileencoding=utf-8
 set fileencodings=utf-8
